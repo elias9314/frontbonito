@@ -1,16 +1,14 @@
-<div class="sidebar-wrapper">
-    <div class="logo"> 
-            <div class="logo-img">
-                <img src="/img/dradon.png"/> 
-            </div>
-            Quito-Gas
+
+ <div class="d-flex" id="wrapper" >  
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">QuitoGas</div>
+      <hr>
+      <div  class="list-group list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="[menuItem.path]">
+            <i class="{{menuItem.icon}}"></i>
+            <p>{{menuItem.title}}</p>
+        </a>
+      </div>
     </div>
-    <ul class="nav responsive-nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
-            <a  [routerLink]="[menuItem.path]">
-                <i class="{{menuItem.icon}}"></i>
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li>
-    </ul>
-</div>
+ 
+
