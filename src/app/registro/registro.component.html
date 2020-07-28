@@ -1,0 +1,26 @@
+<body class="text-center">
+    <section class="view intro-2 rgba-gradient">
+        <div class="full-bg-img">
+          <div class="container flex-center">
+    <form class="form-signin" name="USUARIOS" method="POST" #f="ngForm">
+        <h1 class="text-white">REGISTRO</h1>
+        
+        <input type="text" id="inputNombre" class="form-control" name="nombre" [(ngModel)]="usuarioSeleccionado.nombre_usuario" placeholder="Nombres" required autofocus>
+        
+        <input type="text" id="inputApellido" class="form-control" name="apellido"  [(ngModel)]="usuarioSeleccionado.apellido_usuario" placeholder="Apellidos" required autofocus>
+        
+        <input type="number" id="inputCedula" class="form-control" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cedula" required autofocus>
+       
+        <input type="number" id="inputTelefono" class="form-control" name="telefono"  [(ngModel)]="usuarioSeleccionado.telefono_usuario" placeholder="Telefono" required autofocus>
+        
+        <input type="text" id="inputDireccion" class="form-control" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Direccion" required autofocus>
+       
+        <input type="email" id="inputCorreo" class="form-control" name="correo"  [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo" required autofocus>
+    
+        <input type="password" id="inputPassword" class="form-control"name="password"  [(ngModel)]="usuarioSeleccionado.password_usuario" placeholder="Contraseña" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="postUsuario()">Aceptar</button>
+    </form>
+            </div>
+          </div>
+    </section>
+</body>

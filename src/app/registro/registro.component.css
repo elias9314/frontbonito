@@ -1,0 +1,64 @@
+.form-signin {
+    width: 550%;
+    max-width: 650px;
+    padding: 80px;
+    margin: auto;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 4;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .form-signin input[type="number"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .intro-2 {
+    background: url("https://www.larepublica.ec/wp-content/uploads/2018/03/00-Gas.jpg")no-repeat center center;
+    background-size: cover;
+  }
+  .view {
+   height: 100vh !important;
+  }
+  .btn .fa {
+    margin-left: 3px;
+  }
+  .top-nav-collapse {
+    background-color: #424f95 !important;
+  }
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+  @media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+      background: #424f95 !important;
+    }
+  }
+  h4 {
+    line-height: 1.7;
+  }
+  .rgba-gradient .full-bg-img {
+    background: linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
+  }
