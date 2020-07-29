@@ -9,9 +9,7 @@ import { LoginComponent } from './login/login.component';
 import {ServiceService} from './services/service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { AdminComponent } from './admin/admin.component';
-
+import { LayoutModule } from './layout/layout.module';
 
 
 @NgModule({
@@ -20,11 +18,10 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     RegistroComponent,
     LoginComponent,
-    SidebarComponent,
-    AdminComponent,
   ],
   imports: [
     BrowserModule,
+    LayoutModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
