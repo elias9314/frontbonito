@@ -1,37 +1,20 @@
-<body>
 
-  <div class="d-flex" id="wrapper">
-
-    <div class="bg-primary border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading"> <div class="text-white">QuitoGas</div> </div>
-      <div class="list-group list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
-        <a href="#" class="list-group-item list-group-item-action bg-primary" [routerLink]="[menuItem.path]">
-          <i class="{{menuItem.icon}}"></i>&nbsp;&nbsp;{{menuItem.title}}
-        </a>
-      </div>
+<router-outlet></router-outlet>
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <div class="sidebar-heading text-center text-white"><b>QUITOGAS</b></div>
+      <hr>
+    <div  class="list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+      <li class="sidebar-brand">
+      <a class="list-group-item  bg-primary" [routerLink]="[menuItem.path]">
+          <i class="{{menuItem.icon}}"></i>&nbsp;&nbsp;{{menuItem.title}} 
+      </a>
+    </li>
     </div>
-    <div id="page-content-wrapper">
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home']">Cerrar Sesión</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="container-fluid">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
+  </ul>
   </div>
-</body>
+</div>
 
  
  
