@@ -1,20 +1,17 @@
+<body>
+  <router-outlet></router-outlet>
+  <div class="d-flex" id="wrapper">
 
-<router-outlet></router-outlet>
-<div id="wrapper">
-  <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <div class="sidebar-heading text-center text-white"><b>QUITOGAS</b></div>
-      <hr>
-    <div  class="list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
-      <li class="sidebar-brand">
-      <a class="list-group-item  bg-primary" [routerLink]="[menuItem.path]">
-          <i class="{{menuItem.icon}}"></i>&nbsp;&nbsp;{{menuItem.title}} 
-      </a>
-    </li>
+    <div class="bg-primary border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"> <div class="text-white">QuitoGas</div> </div>
+      <div class="list-group list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+        <a href="#" class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="[menuItem.path]">
+          <i class="{{menuItem.icon}}"></i>&nbsp;&nbsp;{{menuItem.title}}
+        </a>
+      </div>
     </div>
-  </ul>
   </div>
-</div>
+</body>
 
  
  
