@@ -8,13 +8,15 @@ import { PedidoComponent } from './pedido/pedido.component';
 import { SucursalComponent } from './sucursal/sucursal.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [ClienteComponent, GasComponent, PedidoComponent, SucursalComponent, SidebarComponent, NavbarComponent],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    FormsModule
   ]
 })
 export class LayoutModule { }
