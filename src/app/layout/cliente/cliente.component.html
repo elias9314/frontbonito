@@ -41,67 +41,15 @@
                 </tbody>
             </table>
         </div>
+     
+    
+   
+    </div>
+   
+   
+  </div>
 
-<!----->
-<ng-template #contentCliente let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <div class="row">
-            <h3 class="col-12 text-center" name="titulo">Cliente</h3>
-        </div>
-    </div>
-    <div class="modal-body">
-<form name="USUARIOS" method="POST" #f="ngForm">
-    <div class="row">
-        <div class="col-md-6">
-            <label for="nombre">Nombre</label>
-      <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="usuarioSeleccionado.nombre_usuario" placeholder="Nombre">
-        </div>
-        <div class="col-md-6">
-            <label for="apellido">Apellido</label>
-      <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="usuarioSeleccionado.apellido_usuario" placeholder="Apellido">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label for="cedula">Cédula</label>
-            <input type="text" class="form-control" id="cedula" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cédula">
-        </div>
-        <div class="col-md-6">
-            <label for="telefono">Teléfono</label>
-      <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="usuarioSeleccionado.telefono_usuario" placeholder="Télefono">
-        </div>
-    </div>
-    <div class="form-group">
-      <label for="correo">Correo</label>
-      <input type="text" class="form-control" id="correo" name="correo" [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo">
-    </div>
-    <div class="form-group">
-      <label for="direccion">Dirección</label>
-      <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Dirección">
-    </div>
-   <div class="row">
-    <div class="col-md-6">
-        <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="usuarioSeleccionado.password_usuario" placeholder="Password">
-    </div>
-    <div class="col-md-6">
-        <label for="rol">Rol</label>
-        <select name="rol" id="rol" [(ngModel)]="usuarioSeleccionado.id_rol" class="form-control">
-          <option value="1">ADMINISTRADOR</option>
-          <option value="2">SUCURSAL</option>
-      </select>
-    </div>
-   </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="c('save')" [disabled]="f.form.invalid"><i class="fa fa-check" aria-hidden="true">&nbsp; Ok</i></button>
-        <button type="button" class="btn btn-danger" (click)="c('close')"><i class="fa fa-times-circle" aria-hidden="true">&nbsp; Cerrar</i></button>
-    </div>
-  </form>
-    </div>
-</ng-template>
-    </div>
-</div>
-      
+
 
 
 
