@@ -5,11 +5,11 @@
     </div>
     <div class="componente">
         <app-navbar></app-navbar>
-        
+
         <h1>Clientes</h1><br>
         <div class="container">
             <div>
-                <button type="button" class="btn btn-primary" >AGREGAR</button>
+                <button type="button" class="btn btn-primary" (click)="agregarCliente(contentCliente,null)">AGREGAR</button>
             </div><br>
             <table class="table">
                 <thead class="thead-Primary">
@@ -17,9 +17,9 @@
                         <th scope="col">ROL</th>
                         <th scope="col">NOMBRE</th>
                         <th scope="col">APELLIDO</th>
-                        <th scope="col">CEDULA</th>
-                        <th scope="col">TELEFONO</th>
-                        <th scope="col">DIRECCION</th>
+                        <th scope="col">CÉDULA</th>
+                        <th scope="col">TELÉFONO</th>
+                        <th scope="col">DIRECCIÓN</th>
                         <th scope="col">CORREO</th>
                     </tr>
                 </thead>
@@ -33,8 +33,9 @@
                         <td>{{usu.direccion_usuario}}</td>
                         <td>{{usu.correo_usuario}}</td>
                         <td>
-                            <button class="btn btn-warning ml-1 btn-sm text-white" ><i class="fa fa-pencil" aria-hidden="true"></i>
-                </button>
+                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar" (click)="agregarCliente(contentCliente,usu)" title="Actualizar" *ngIf="usu.id_usuario != usuario.id_usuario"><i class="fa fa-pencil"
+                                    aria-hidden="true"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
