@@ -12,7 +12,15 @@
         <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit" [routerLink]="['/cliente']">Iniciar Sesión</button>
         <div class="container">
-            <a  class="text-white" [routerLink]="['/registro']">REGISTRESE</a>
+            <div class="row">
+                <div class="col-md-6"> 
+                    <a  class="text-white" [routerLink]="['/registro']">REGISTRESE</a>
+                </div>
+                <div class="col-md-6">
+                    <a  class="text-white" [routerLink]="['/home']">ATRAS</a>
+                </div>
+            </div>
+           
         </div>
     </form>
             </div>
