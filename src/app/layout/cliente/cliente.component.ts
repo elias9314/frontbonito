@@ -37,7 +37,7 @@ export class ClienteComponent implements OnInit {
     // tslint:disable-next-line:typedef
     postUsuario() {
       // tslint:disable-next-line:object-literal-key-quotes
-      this.service.post('/users', {'usuario': this.usuarioSeleccionado}).subscribe(
+      this.service.post('/user', {'usuario': this.usuarioSeleccionado}).subscribe(
         response => {
           this.getUsuarios();
           console.log(response);
@@ -51,7 +51,7 @@ export class ClienteComponent implements OnInit {
      // tslint:disable-next-line:typedef
      actualizarCliente(usu: Usuario){
       // tslint:disable-next-line:object-literal-key-quotes
-      this.service.update('/users', {'usuario': usu}).subscribe(
+      this.service.update('/user', {'usuario': usu}).subscribe(
         response => {
           this.getUsuarios();
           console.log(response);
