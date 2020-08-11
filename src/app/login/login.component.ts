@@ -12,13 +12,9 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  // logeo: Array<Login>;
-  // logeos: Login;
-  // login: Login;
-
-  logeo : Array<Usuario>;
+  logeo: Array<Usuario>;
   logeos: Usuario;
-  login : Usuario;
+  login: Usuario;
 
   constructor(private service: ServiceService,private router: Router) { }
 
@@ -28,10 +24,28 @@ export class LoginComponent implements OnInit {
   }
 
   loginFuction(){
-    this.service.post('/signin',{usuario: this.logeos}).subscribe(
+    // delete this.logeos.id_rol,
+    // delete this.logeos.id_usuario,
+    // delete this.logeos.nombre_usuario,
+    // delete this.logeos.apellido_usuario,
+    // delete this.logeos.cedula_usuario,
+    // delete this.logeos.telefono_usuario,
+    // delete this.logeos.direccion_usuario,
+   
+    console.log(this.logeos)
+    this.service.post('/signin',{Login: this.logeos}).subscribe(
       response => {
-        localStorage.setItem("userToken",response['token'])
-        this.router.navigate(['/cliente'])
+        if(response['auth'] == true){
+          localStorage.setItem("userToken",response['token'])
+          this.router.navigate(['/cliente'])
+        }else{
+          Swal.fire(
+            'Halgo ha salido mal!',
+            'Intenta nuevamente',
+            'error'
+          );
+        }
+        
         },
         error => {
           Swal.fire(
