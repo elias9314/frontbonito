@@ -22,11 +22,10 @@ export class ClienteComponent implements OnInit {
     this.usuario = new Usuario();
   }
 
-  // tslint:disable-next-line:typedef
+
   getUsuarios() {
     this.service.get('/users').subscribe(
       response => {
-       // tslint:disable-next-line:no-string-literal
        this.usuarios = response['usuarios'];
        console.log(this.usuarios);
       },
@@ -34,9 +33,7 @@ export class ClienteComponent implements OnInit {
     );
     }
 
-    // tslint:disable-next-line:typedef
     postUsuario() {
-      // tslint:disable-next-line:object-literal-key-quotes
       this.service.post('/user', {'usuario': this.usuarioSeleccionado}).subscribe(
         response => {
           this.getUsuarios();
@@ -48,9 +45,8 @@ export class ClienteComponent implements OnInit {
       );
      }
 
-     // tslint:disable-next-line:typedef
+     
      actualizarCliente(usu: Usuario){
-      // tslint:disable-next-line:object-literal-key-quotes
       this.service.update('/user', {'usuario': usu}).subscribe(
         response => {
           this.getUsuarios();
@@ -62,7 +58,6 @@ export class ClienteComponent implements OnInit {
       );
      }
 
-     // tslint:disable-next-line:typedef
   agregarCliente(content, usu) {
     if (usu != null) {
       this.usuarioSeleccionado = usu;

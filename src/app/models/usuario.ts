@@ -1,21 +1,13 @@
 export class Usuario {
-    // tslint:disable-next-line:variable-name
+    
     id_usuario?: number;
-    // tslint:disable-next-line:variable-name
-    id_rol: number;
-    // tslint:disable-next-line:variable-name
-    nombre_usuario: string;
-    // tslint:disable-next-line:variable-name
-    apellido_usuario: string;
-    // tslint:disable-next-line:variable-name
+    id_rol: number; 
+    nombre_usuario: string; 
+    apellido_usuario: string; 
     cedula_usuario: string;
-    // tslint:disable-next-line:variable-name
     telefono_usuario: string;
-    // tslint:disable-next-line:variable-name
     direccion_usuario: string;
-    // tslint:disable-next-line:variable-name
     correo_usuario: string;
-    // tslint:disable-next-line:variable-name
     password_usuario: string;
 
     constructor() {
