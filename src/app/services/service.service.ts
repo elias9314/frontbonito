@@ -25,4 +25,17 @@ export class ServiceService {
     url = environment.API_URL + url;
     return this.http.put(url, data);
   }
+
+  gard(){
+    var userToken = localStorage.getItem('userToken');
+    console.log(userToken)
+    if(userToken == null){
+      return false
+    }else{
+      return true
+    }
+
+  }
+
+
 }

@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   postUsuario() {
-    this.service.post('/users', { usuario: this.usuarioSeleccionado }).subscribe(
+    this.service.post('/user', { usuario: this.usuarioSeleccionado }).subscribe(
       response => {
         console.log(response);
         Swal.fire(

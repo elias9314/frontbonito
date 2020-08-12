@@ -24,18 +24,19 @@ export class LoginComponent implements OnInit {
   }
 
   loginFuction(){
-    // delete this.logeos.id_rol,
-    // delete this.logeos.id_usuario,
-    // delete this.logeos.nombre_usuario,
-    // delete this.logeos.apellido_usuario,
-    // delete this.logeos.cedula_usuario,
-    // delete this.logeos.telefono_usuario,
-    // delete this.logeos.direccion_usuario,
+     delete this.logeos.id_rol,
+     delete this.logeos.id_usuario,
+     delete this.logeos.nombre_usuario,
+     delete this.logeos.apellido_usuario,
+     delete this.logeos.cedula_usuario,
+     delete this.logeos.telefono_usuario,
+     delete this.logeos.direccion_usuario,
    
-    console.log(this.logeos)
+   
     this.service.post('/signin',{Login: this.logeos}).subscribe(
       response => {
         if(response['auth'] == true){
+          console.log(response['Login'][0]["id_rol"])
           localStorage.setItem("userToken",response['token'])
           this.router.navigate(['/cliente'])
         }else{
