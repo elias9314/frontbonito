@@ -11,8 +11,11 @@
         <input type="number" id="inputCedula" class="form-control" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cédula" required autofocus>
        
         <input type="number" id="inputTelefono" class="form-control" name="telefono"  [(ngModel)]="usuarioSeleccionado.telefono_usuario" placeholder="Teléfono" required autofocus>
+        <div>
+            <input type="text" id="inputDireccion" class="form-control" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Dirección" required autofocus >
+            <google-map width="470" height= "200" [center] = "position"> <map-marker [position] = "position" [label]="label"></map-marker></google-map>
+        </div>
         
-        <input type="text" id="inputDireccion" class="form-control" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Dirección" required autofocus>
        
         <input type="email" id="inputCorreo" class="form-control" name="correo"  [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo" required autofocus>
     

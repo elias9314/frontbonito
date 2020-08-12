@@ -10,7 +10,7 @@ import {ServiceService} from './services/service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
-
+import { GoogleMapsModule} from '@angular/google-maps'
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { LayoutModule } from './layout/layout.module';
     NgbModule,
     HttpClientModule,
     FormsModule,
+    GoogleMapsModule,
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
