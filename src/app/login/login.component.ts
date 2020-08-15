@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   logeo: Array<Usuario>;
   logeos: Usuario;
   login: Usuario;
+  hide = true;
 
   constructor(private service: ServiceService,private router: Router) { }
 
