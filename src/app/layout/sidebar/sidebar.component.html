@@ -4,15 +4,15 @@
     
     <div class="bg-primary border-right" id="sidebar-wrapper">
       <div class="sidebar-heading"> <div class="text-white">QuitoGas</div> </div>
-      <!-- <div class="list-group list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+       <div class="list-group list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
         <a  class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="[menuItem.path]">
           <i class="{{menuItem.icon}}"></i>&nbsp;&nbsp;{{menuItem.title}}
         </a>
-      </div> -->
-      <div class="list-group list-group-flush">
-        <a routerLink="/cliente" routerLinkActive="active" class="list-group-item" *ngIf="usuario.id_rol"></a>
+      </div> 
+      <!-- <div class="list-group list-group-flush">
+        <a routerLink="/cliente" routerLinkActive="active" class="list-group-item" *ngIf="this.usuario.id_rol==1"></a>
         <i class="fa fa-user-circle-o"></i>
-      </div>
+      </div> -->
     </div>
   </div>
 </body>

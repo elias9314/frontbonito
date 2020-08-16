@@ -12,7 +12,7 @@
                 <button type="button" class="btn btn-primary" (click)="agregarCliente(contentCliente,null)">AGREGAR</button>
             </div><br>
             <table class="table">
-                <thead class="thead-Primary">
+                <thead class="thead-Primary"> 
                     <tr>
                         <th scope="col">ROL</th>
                         <th scope="col">NOMBRE</th>
@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let usu of usuarios">
-                        <td>{{usu.id_rol}}</td>
+                        <td>{{usu["nombre"]}}</td>
                         <td>{{usu.nombre_usuario}}</td>
                         <td>{{usu.apellido_usuario}}</td>
                         <td>{{usu.cedula_usuario}}</td>
