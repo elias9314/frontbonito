@@ -20,8 +20,8 @@ export class RegistroComponent implements OnInit {
 
 
   position = {
-    lat: -34.681,
-    lng: -58.371
+    lat: -0.267168,
+    lng: -78.541828
   };
 
   label = {
