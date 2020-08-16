@@ -3,7 +3,9 @@ import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ServiceService } from '../services/service.service';
 import { Usuario} from '../models/usuario';
 import Swal from 'sweetalert2';
-
+import {Marcador} from '../classes/marcador.class'
+import { AgmCoreModule } from '@agm/core';
+ 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -13,6 +15,9 @@ export class RegistroComponent implements OnInit {
   usuarios: Array<Usuario>;
   usuarioSeleccionado: Usuario;
   usuario: Usuario;
+  
+  marcadores:  Marcador[] =[];
+
 
   position = {
     lat: -34.681,
@@ -23,7 +28,10 @@ export class RegistroComponent implements OnInit {
     color : 'red',
     text: 'marcador'
   };
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService) {
+    const nuevoMarcador= new Marcador(-34.681,-34.681)
+    this.marcadores.push(nuevoMarcador);
+   }
 
   ngOnInit(): void {
     this.usuarioSeleccionado = new Usuario();
@@ -46,4 +54,5 @@ export class RegistroComponent implements OnInit {
     );
   }
 
+  
 }

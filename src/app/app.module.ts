@@ -11,7 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 import { GoogleMapsModule} from '@angular/google-maps'
-
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +27,9 @@ import { GoogleMapsModule} from '@angular/google-maps'
     HttpClientModule,
     FormsModule,
     GoogleMapsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'TU_API_KEY'    
+   })
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
