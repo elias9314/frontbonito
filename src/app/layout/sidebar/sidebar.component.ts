@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario} from '../../models/usuario';
+import { Router } from '@angular/router';
 
 declare interface RouteInfo {
   path: string;
@@ -26,7 +27,7 @@ export class SidebarComponent implements OnInit {
   usuario : Usuario;
   menuItems: any[];
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     this.usuario = JSON.parse(localStorage.getItem('usuario')) as Usuario;
