@@ -33,7 +33,7 @@
                         <td>{{sucu.correo_sucursal}}</td>
                         <td>{{sucu.stock_sucursal}}</td>
                         <td>
-                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar"  title="Actualizar"><i class="fa fa-pencil"
+                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar" (click)="agregarSucursal(contentSucursal,sucu)"  *ngIf="sucu.id_sucursal != sucursal.id_sucursal" title="Actualizar"><i class="fa fa-pencil"
                                     aria-hidden="true"></i>
                             </button>
                         </td>
@@ -54,12 +54,49 @@
     <div class="row">
         <div class="col-md-6">
             <label for="nombre">Nombre Usuario</label>
-      <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="sucursalSeleccionado.nombre_sucursal" placeholder="Nombre">
+            <select name="nombre"  [(ngModel)]="sucursalSeleccionado.id_usuario" class="form-control">
+                <option value="{{item.id_usuario}}" *ngFor="let item of usuSucursal">{{item["nombre_usuario"]}}&nbsp;{{item["apellido_usuario"]}}</option>
+            </select>
         </div>
-        <!-- <div class="col-md-6">
-            <label for="precio">Precio</label>
-      <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="productoSeleccionado.precio_producto" placeholder="Precio">
-        </div> -->
+        <div class="col-md-6">
+            <label for="nombre">Producto</label>
+            <select name="nombre"  [(ngModel)]="sucursalSeleccionado.id_producto" class="form-control">
+                <option value="{{item.id_producto}}" *ngFor="let item of productos">{{item.nombre_producto}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="nombre_sucursal">Nombre Sucursal</label>
+            <input type="text" class="form-control"  name="Nombre_sucusral"
+                [(ngModel)]="sucursalSeleccionado.nombre_sucursal" placeholder="Nombre Sucursal">
+        </div>
+        <div>
+            <label for="telefono">Teléfono</label>
+            <input type="text" class="form-control"  name="telefono"
+                [(ngModel)]="sucursalSeleccionado.telefono_sucursal" placeholder="Teléfono">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="direccion">Dirección</label>
+            <input type="text" class="form-control"  name="direccion"
+                [(ngModel)]="sucursalSeleccionado.direccion_sucursal" placeholder="Dirección">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="correo">Correo</label>
+            <input type="text" class="form-control"  name="correo"
+                [(ngModel)]="sucursalSeleccionado.correo_sucursal" placeholder="Correo">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="stock">Stock</label>
+            <input type="number" class="form-control"  name="stock"
+                [(ngModel)]="sucursalSeleccionado.stock_sucursal" placeholder="Stock">
+        </div>
     </div>
     
     <div class="modal-footer">

@@ -3,6 +3,7 @@ import { Sucursal } from '../../models/sucursal';
 import { Usuario } from '../../models/usuario';
 import { ServiceService} from '../../services/service.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Producto} from '../../models/producto';
 
 @Component({
   selector: 'app-sucursal',
@@ -15,6 +16,13 @@ export class SucursalComponent implements OnInit {
   sucursalSeleccionado: Sucursal;
   sucursal: Sucursal;
 
+  ususucursales: Array<Usuario>;
+  usuSucursal : Usuario;
+  usuSucursalSeleccionado: Usuario;
+
+  productos: Array<Producto>;
+  productoSeleccionado: Producto;
+  producto: Producto;
   constructor(private service: ServiceService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -23,6 +31,18 @@ export class SucursalComponent implements OnInit {
     this.sucursalSeleccionado = new Sucursal();
     this.sucursales = new Array<Sucursal>();
     this.sucursal = new Sucursal();
+
+    this.getUsuSucursales();
+    this.ususucursales = new Array<Usuario>();
+    this.usuSucursal = new Usuario();
+    this.usuSucursalSeleccionado = new Usuario();
+    console.log(this.usuSucursal);
+
+    this.getProductos();
+    this.productoSeleccionado = new Producto();
+    this.productos = new Array<Producto>();
+    this.producto = new Producto();
+
   }
 
   getSucursales(){
@@ -38,12 +58,22 @@ export class SucursalComponent implements OnInit {
  getUsuSucursales(){
    this.service.get('/UsuSucursales').subscribe(
      response =>{
-      this.sucursales = response['sucursales'];
-      console.log(this.sucursales);
+      this.usuSucursal = response['UsuariosSucursales'];
+      console.log(this.usuSucursal);
      },
      err => console.log(err)
    );
  }
+
+ getProductos() {
+  this.service.get('/productos').subscribe(
+    response => {
+     this.productos = response['productos'];
+     console.log(this.productos);
+    },
+    err => console.error(err)
+  );
+  }
 
   postSucursal() {
     this.service.post('/sucursal', {'sucursal': this.sucursalSeleccionado}).subscribe(
