@@ -35,4 +35,60 @@ export class SucursalComponent implements OnInit {
     );
   }
 
+ getUsuSucursales(){
+   this.service.get('/UsuSucursales').subscribe(
+     response =>{
+      this.sucursales = response['sucursales'];
+      console.log(this.sucursales);
+     },
+     err => console.log(err)
+   );
+ }
+
+  postSucursal() {
+    this.service.post('/sucursal', {'sucursal': this.sucursalSeleccionado}).subscribe(
+      response => {
+        this.getSucursales();
+        console.log(response);
+      },
+      error => {
+        console.log('error');
+      }
+    );
+   }
+
+   
+   actualizarSucursal(sucu: Usuario){
+    this.service.update('/sucursal', {'sucursal': sucu}).subscribe(
+      response => {
+        this.getSucursales();
+        console.log(response);
+      },
+      error => {
+        console.log('error');
+      }
+    );
+   }
+
+agregarSucursal(content, sucu) {
+  if (sucu != null) {
+    this.sucursalSeleccionado = sucu;
+  }
+  this.modalService.open(content)
+    .result
+    .then((resultModal => {
+      if (resultModal === 'save') {
+        if (sucu == null) {
+          this.postSucursal();
+        } else {
+          this.actualizarSucursal(sucu);
+        }
+      } else {
+        this.getSucursales();
+      }
+    }), (resultCancel => {
+      this.getSucursales();
+    }));
+}
+
 }
