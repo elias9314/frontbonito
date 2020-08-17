@@ -2,6 +2,20 @@
   <router-outlet></router-outlet>
   <div class="d-flex" id="wrapper">
     
+<<<<<<< HEAD
+    <div class="bg-primary border-right"  id="sidebar-wrapper" >
+      <div class="sidebar-heading">         
+            <div class="text-white">QuitoGas</div>
+            </div>
+            <div class="list-group list-group-flush" >
+               
+                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/cliente']" > <i class="fa fa-user-circle-o"></i>  Cliente </a>
+                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/gas']"><i class="fa fa-file-text"></i>  Gas</a>
+                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedido']"><i class="fa fa-file-text"></i>  Pedido</a>
+                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/sucursal']"><i class="fa fa-users"></i>  Sucursal</a>
+            </div>
+     </div>
+=======
     <div class="bg-primary border-right" id="sidebar-wrapper">
       <div class="sidebar-heading"> <div class="text-white">QuitoGas</div> </div>
        <div class="list-group list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
@@ -14,6 +28,7 @@
         <i class="fa fa-user-circle-o"></i>
       </div> -->
     </div>
+>>>>>>> f69f866a3952e8a79eb83813794afbc82bfa83ba
   </div>
 </body>
 

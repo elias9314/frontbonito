@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
     this.service.post('/signin',{Login: this.logeos}).subscribe(
       response => {
         if(response['auth'] == true){
-          console.log(response['Login'][0]["id_rol"])
+          var rol =response['Login'][0]["id_rol"]
+          localStorage.setItem("rol",rol)
           localStorage.setItem("userToken",response['token'])
           this.router.navigate(['/cliente'])
         }else{
