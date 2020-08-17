@@ -10,7 +10,7 @@
             <div>
                 <button type="button" class="btn btn-primary">AGREGAR</button>
             </div><br>
-            <table class="table">
+            <table class="table"> 
                 <thead class="thead-Primary">
                     <tr>
                         <th scope="col">NOMBRE USUARIO</th>
@@ -23,12 +23,17 @@
 
                     </tr>
                 </thead>
-                <!-- <tbody>
-                    <tr *ngFor="let pro of productos">
-                        <td>{{pro.nombre_producto}}</td>
-                        <td>{{pro.precio_producto}}</td>
+                <tbody>
+                    <tr *ngFor="let sucu of sucursales">
+                        <td>{{sucu["nombre_usuario"]}}&nbsp;{{sucu["apellido_usuario"]}}</td>
+                        <td>{{sucu["nombre_producto"]}}</td>
+                        <td>{{sucu.nombre_sucursal}}</td>
+                        <td>{{sucu.direccion_sucursal}}</td>
+                        <td>{{sucu.telefono_sucursal}}</td>
+                        <td>{{sucu.correo_sucursal}}</td>
+                        <td>{{sucu.stock_sucursal}}</td>
                         <td>
-                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar" (click)="agregarProducto(contentProducto,pro)" title="Actualizar" *ngIf="pro.id_producto != producto.id_producto"><i class="fa fa-pencil"
+                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar"  title="Actualizar"><i class="fa fa-pencil"
                                     aria-hidden="true"></i>
                             </button>
                         </td>
@@ -37,6 +42,7 @@
             </table>
         </div>
 
+    <!--    
 <ng-template #contentProducto let-c="close" let-d="dismiss">
     <div class="modal-header">
         <div class="row">

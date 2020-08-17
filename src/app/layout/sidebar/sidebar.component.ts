@@ -28,12 +28,15 @@ export class SidebarComponent implements OnInit {
 
   usuario : Usuario;
   menuItems: any[];
+<<<<<<< HEAD
   rol = localStorage.getItem("rol")
 
+=======
+>>>>>>> f69f866a3952e8a79eb83813794afbc82bfa83ba
   constructor(public router: Router) { }
 
   ngOnInit(): void {
-    this.usuario = JSON.parse(localStorage.getItem('usuario')) as Usuario;
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
 
