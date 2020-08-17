@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario} from '../../models/usuario';
 import { Router } from '@angular/router';
 
+
+
 declare interface RouteInfo {
   path: string;
   title: string;
@@ -26,6 +28,7 @@ export class SidebarComponent implements OnInit {
 
   usuario : Usuario;
   menuItems: any[];
+  rol = localStorage.getItem("rol")
 
   constructor(public router: Router) { }
 
