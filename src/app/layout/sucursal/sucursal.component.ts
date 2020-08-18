@@ -68,8 +68,8 @@ export class SucursalComponent implements OnInit {
  getProductos() {
   this.service.get('/productos').subscribe(
     response => {
-     this.productos = response['productos'];
-     console.log(this.productos);
+     this.producto = response['productos'];
+     console.log(this.producto);
     },
     err => console.error(err)
   );

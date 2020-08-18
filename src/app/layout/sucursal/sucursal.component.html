@@ -59,9 +59,9 @@
             </select>
         </div>
         <div class="col-md-6">
-            <label for="nombre">Producto</label>
-            <select name="nombre"  [(ngModel)]="sucursalSeleccionado.id_producto" class="form-control">
-                <option value="{{item.id_producto}}" *ngFor="let item of productos">{{item.nombre_producto}}</option>
+            <label for="producto">Producto</label>
+            <select   [(ngModel)]="sucursalSeleccionado.id_producto" class="form-control" name="producto">
+                <option value="{{pro.id_producto}}" *ngFor="let pro of producto">{{pro.nombre_producto}}</option>
             </select>
         </div>
     </div>
