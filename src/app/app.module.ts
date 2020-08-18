@@ -8,7 +8,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import {ServiceService} from './services/service.service';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 import { GoogleMapsModule} from '@angular/google-maps'
 import { AgmCoreModule } from '@agm/core';
@@ -30,6 +30,7 @@ import { AgmCoreModule } from '@agm/core';
     NgbModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     GoogleMapsModule,
   ],
   providers: [ServiceService],
