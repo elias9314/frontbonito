@@ -4,14 +4,18 @@
     <section class="view intro-2 rgba-gradient">
         <div class="full-bg-img">
           <div class="container flex-center">
-    <form class="form-signin" method="POST" #f="ngForm">
+    <form  [formGroup]="loginForm" class="form-signin" method="POST" #f="ngForm">
         <h1 class="text-white">LOGIN</h1>
         <label for="inputEmail" class="sr-only">Correo</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Correo" name="usuario" [(ngModel)]="logeos.correo_usuario" required autofocus>
+        <input formControlName="correo" type="email" id="inputEmail" class="form-control" placeholder="Correo" name="usuario" [(ngModel)]="logeos.correo_usuario" required autofocus>
+        <div class="alert-danger" *ngIf="correo.invalid &&(correo.dirty || correo.touched)">
+            <div class="container-error-mensage " *ngIf="correo.invalid">
+                se necesita tener este campo
+            </div>
+        </div>
         <label for="inputPassword" class="sr-only">Contraseña</label>
-       
         <div class="input-group mb-3">
-            <input [type]="hide ? 'password': 'text'" id="inputPassword" class="form-control" placeholder="Contraseña"
+            <input  formControlName="password" [type]="hide ? 'password': 'text'" id="inputPassword" class="form-control" placeholder="Contraseña"
                 name="password" [(ngModel)]="logeos.password_usuario" required>
             <div class="input-group-append">         
             <button  class="btn btn-primary" (click)="hide =!hide">
@@ -19,6 +23,7 @@
             </button>
             </div>
         </div>
+        
         <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="loginFuction()">Iniciar Sesión</button>
         <div class="container">
             <div class="row">

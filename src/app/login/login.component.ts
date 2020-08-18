@@ -4,7 +4,7 @@ import {Login} from '../models/login';
 import {Usuario} from '../models/usuario';
 import Swal from 'sweetalert2';
 import {Router} from "@angular/router";
-
+import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,9 +17,17 @@ export class LoginComponent implements OnInit {
   login: Usuario;
   hide = true;
 
-  constructor(private service: ServiceService,private router: Router) { }
+  loginForm: FormGroup;
+
+  constructor(private service: ServiceService,private router: Router,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+  //   this.loginForm = this.formBuilder.group({
+  //     correo: ['', Validators.required],
+  //     password: ['', Validators.required]
+  // });
+
+this.formularioTipo();
     this.logeos = new Usuario();
     
   }
@@ -59,5 +67,17 @@ export class LoginComponent implements OnInit {
         }
     )
   }
+
+
+   formularioTipo() {
+     return this.loginForm = new FormGroup({
+         correo: new FormControl('', [Validators.required, Validators.minLength(4), Validators.pattern('^([A-Za-z])*$')]),
+         password: new FormControl('', [Validators.required]),
+
+     });
+ }
+ get correo() {return this.loginForm.get('correo'); }
+ get password() {return this.loginForm.get('password'); }
+
 
 }
