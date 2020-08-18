@@ -4,7 +4,7 @@ import { ServiceService } from '../services/service.service';
 import { Usuario} from '../models/usuario';
 import Swal from 'sweetalert2';
 import {Marcador} from '../classes/marcador.class'
-import { AgmCoreModule } from '@agm/core';
+
  
 @Component({
   selector: 'app-registro',

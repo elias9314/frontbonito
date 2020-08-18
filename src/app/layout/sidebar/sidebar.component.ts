@@ -28,8 +28,15 @@ export class SidebarComponent implements OnInit {
 
   usuario : Usuario;
   menuItems: any[];
+<<<<<<< HEAD
   rol = localStorage.getItem("rol")
 
+=======
+
+  rol = localStorage.getItem("rol")
+
+
+>>>>>>> 6f67095878ec33877a64cc355d67ea36f328aa70
   constructor(public router: Router) { }
 
   ngOnInit(): void {

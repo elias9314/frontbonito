@@ -22,11 +22,10 @@ export class GasComponent implements OnInit {
     this.producto = new Producto();
   }
 
-  // tslint:disable-next-line:typedef
+
   getProductos() {
     this.service.get('/productos').subscribe(
       response => {
-       // tslint:disable-next-line:no-string-literal
        this.productos = response['productos'];
        console.log(this.productos);
       },
@@ -34,9 +33,7 @@ export class GasComponent implements OnInit {
     );
     }
 
-    // tslint:disable-next-line:typedef
     postProducto() {
-      // tslint:disable-next-line:object-literal-key-quotes
       this.service.post('/producto', {'producto': this.productoSeleccionado}).subscribe(
         response => {
           this.getProductos();
@@ -48,9 +45,8 @@ export class GasComponent implements OnInit {
       );
      }
 
-     // tslint:disable-next-line:typedef
+
      actualizarProducto(pro: Producto){
-      // tslint:disable-next-line:object-literal-key-quotes
       this.service.update('/producto', {'producto': pro}).subscribe(
         response => {
           this.getProductos();
@@ -62,7 +58,6 @@ export class GasComponent implements OnInit {
       );
      }
 
-     // tslint:disable-next-line:typedef
   agregarProducto(content, pro) {
     if (pro != null) {
       this.productoSeleccionado = pro;
