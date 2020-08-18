@@ -1,0 +1,40 @@
+
+<div class="wrapper"> 
+    <div class="menu">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="componente">
+        <app-navbar></app-navbar>
+
+        <h1>Sucursales</h1><br>  
+        <div class="container">
+            <div> 
+        
+
+              <div class="row justify-content-around">
+                <div class="col-6" *ngFor="let cli of sucursalesCliente">
+                    <article class="articles">
+                        
+                        <button>Pidelo ya!!</button> 
+                        <h2>{{cli['nombre_sucursal']}}</h2>              
+                        <h5>Direccion: </h5>
+                        <p>{{cli['direccion_usuario']}}</p>
+                        <h5>Contactos</h5>
+                        <p>{{cli['correo_sucursal']}} // {{cli['telefono_sucursal']}}</p>
+                        <h3>Precio: ${{cli['precio_producto']}}  -  Stock: {{cli['stock_sucursal']}}</h3>  
+                    </article>
+                </div>
+              
+              </div>
+
+        </div>
+
+        </div>
+
+
+    </div>
+</div>
+      
+
+
+

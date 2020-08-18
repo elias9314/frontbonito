@@ -2,7 +2,7 @@
   <router-outlet></router-outlet>
   <div class="d-flex" id="wrapper">
     
-<<<<<<< HEAD
+
     <div class="bg-primary border-right"  id="sidebar-wrapper" >
       <div class="sidebar-heading">         
             <div class="text-white">QuitoGas</div>
@@ -13,22 +13,13 @@
                 <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/gas']"><i class="fa fa-file-text"></i>  Gas</a>
                 <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedido']"><i class="fa fa-file-text"></i>  Pedido</a>
                 <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/sucursal']"><i class="fa fa-users"></i>  Sucursal</a>
+                <a *ngIf="rol == '2' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/sucursalesCli']"><i class="fa fa-users"></i>  Sucursales</a>
+                <a *ngIf="rol == '2' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedidosCli']"><i class="fa fa-users"></i>  Pedidos</a>
+
+                
             </div>
      </div>
-=======
-    <div class="bg-primary border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading"> <div class="text-white">QuitoGas</div> </div>
-       <div class="list-group list-group-flush" routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
-        <a  class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="[menuItem.path]">
-          <i class="{{menuItem.icon}}"></i>&nbsp;&nbsp;{{menuItem.title}}
-        </a>
-      </div> 
-      <!-- <div class="list-group list-group-flush">
-        <a routerLink="/cliente" routerLinkActive="active" class="list-group-item" *ngIf="this.usuario.id_rol==1"></a>
-        <i class="fa fa-user-circle-o"></i>
-      </div> -->
-    </div>
->>>>>>> f69f866a3952e8a79eb83813794afbc82bfa83ba
+
   </div>
 </body>
 
