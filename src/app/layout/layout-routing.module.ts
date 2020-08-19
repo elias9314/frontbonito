@@ -10,6 +10,8 @@ import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.compo
 import { ClientesRealizarPedidosComponent } from './clientes-realizar-pedidos/clientes-realizar-pedidos.component';
 import { ClientesPedidosEntregadosComponent } from './clientes-pedidos-entregados/clientes-pedidos-entregados.component'
 import { LoginBienvenidaComponent } from './login-bienvenida/login-bienvenida.component'
+import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pendientes.component'
+import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component'
 
 const routes: Routes = [
   {path: 'sucursal', component: SucursalComponent, canActivate: [AuthGuard]},
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path: 'pendientesCli', component: PedidosClienteComponent,canActivate: [AuthGuard]},
   {path: 'pedidosCli', component: ClientesPedidosEntregadosComponent,canActivate: [AuthGuard]},
   {path: 'homeLogin', component: LoginBienvenidaComponent,canActivate: [AuthGuard]},
-  
+  {path: 'pedidosPendientesSucur', component: SucursalPendientesComponent,canActivate: [AuthGuard]},
+  {path: 'pedidosEntegadosSucur', component: SucursalEntregadosComponent,canActivate: [AuthGuard]},  
+
 
 ];
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario} from '../../models/usuario';
 import { Router } from '@angular/router';
+import { ServiceService} from '../../services/service.service';
 
 
 
@@ -25,16 +26,30 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
+  sucursalesCliente;
   usuario : Usuario;
   menuItems: any[];
   rol = localStorage.getItem("rol")
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,private service: ServiceService) { }
 
   ngOnInit(): void {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.getSucrisalesClientes()
   }
+
+
+  getSucrisalesClientes(){
+    this.service.get('/sucursales').subscribe(
+      response => {
+        this.sucursalesCliente = response['sucursales'];
+       console.log(response['sucursales']);
+      },
+      error => {
+        console.log('error');
+      }
+    );
+   }
 
 }

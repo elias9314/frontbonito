@@ -3,17 +3,16 @@ import { ServiceService} from '../../services/service.service';
 
 
 @Component({
-  selector: 'app-cliente-sucursales',
-  templateUrl: './cliente-sucursales.component.html',
-  styleUrls: ['./cliente-sucursales.component.css']
+  selector: 'app-sucursal-entregados',
+  templateUrl: './sucursal-entregados.component.html',
+  styleUrls: ['./sucursal-entregados.component.css']
 })
-export class ClienteSucursalesComponent implements OnInit {
-
+export class SucursalEntregadosComponent implements OnInit {
   sucursalesCliente;
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
-    this.getSucrisalesClientes();
+    this.getSucrisalesClientes()
   }
 
   getSucrisalesClientes(){
@@ -27,6 +26,5 @@ export class ClienteSucursalesComponent implements OnInit {
       }
     );
    }
+
 }
-
-
