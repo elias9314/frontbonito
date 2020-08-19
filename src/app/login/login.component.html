@@ -14,17 +14,25 @@
             </div>
         </div>
         <label for="inputPassword" class="sr-only">Contraseña</label>
-        <div class="input-group mb-3">
-            <input  formControlName="password" [type]="hide ? 'password': 'text'" id="inputPassword" class="form-control" placeholder="Contraseña"
-                name="password" [(ngModel)]="logeos.password_usuario" required>
-            <div class="input-group-append">         
-            <button  class="btn btn-primary" (click)="hide =!hide">
-            {{hide ? 'mostrar': 'ocultar'}}
-            </button>
+        <div>
+            <div class="input-group mb-3">
+                <input  formControlName="password" [type]="hide ? 'password': 'text'" id="inputPassword" class="form-control" placeholder="Contraseña"
+                    name="password" [(ngModel)]="logeos.password_usuario" required>
+                <div class="input-group-append">         
+                <button  class="btn btn-primary" (click)="hide =!hide">
+                {{hide ? 'mostrar': 'ocultar'}}
+                </button>
+                </div>
+            </div>
+            <div class="alert-danger" *ngIf="password.invalid &&(password.dirty || password.touched)">
+                <div class="container-error-mensage " *ngIf="password.invalid">
+                    Campo requerido
+                </div>
             </div>
         </div>
+      
         
-        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="loginFuction()">Iniciar Sesión</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="loginFuction()" [disabled]="!loginForm.valid">Iniciar Sesión</button>
         <div class="container">
             <div class="row">
                 <div class="col-md-6"> 

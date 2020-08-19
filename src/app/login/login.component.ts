@@ -12,6 +12,14 @@ import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+patternnombres ="([a-zA-ZÀ-ÿ\u00f1\u00d1\.][^\s]*)+$";
+patternnumero="[0-9]{7,10}$";
+patternweb="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,4}$";
+patterncorreo="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+patterfinan="[0-9]*";
+patterndireccion = "([a-zA-ZÀ-ÿ\u00f1\u00d1\.0-9][^\s]*)+$";
+patternpassword ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}";
+
   logeo: Array<Usuario>;
   logeos: Usuario;
   login: Usuario;
@@ -31,6 +39,16 @@ this.formularioTipo();
     this.logeos = new Usuario();
     
   }
+
+     formularioTipo() {
+     return this.loginForm = new FormGroup({
+         correo: new FormControl('', [Validators.required]),
+         password: new FormControl('', [Validators.required])
+
+     });
+ }
+ get correo() {return this.loginForm.get('correo'); }
+ get password() {return this.loginForm.get('password'); }
 
   loginFuction(){
      delete this.logeos.id_rol,
@@ -67,17 +85,5 @@ this.formularioTipo();
         }
     )
   }
-
-
-   formularioTipo() {
-     return this.loginForm = new FormGroup({
-         correo: new FormControl('', [Validators.required, Validators.minLength(4), Validators.pattern('^([A-Za-z])*$')]),
-         password: new FormControl('', [Validators.required]),
-
-     });
- }
- get correo() {return this.loginForm.get('correo'); }
- get password() {return this.loginForm.get('password'); }
-
 
 }
