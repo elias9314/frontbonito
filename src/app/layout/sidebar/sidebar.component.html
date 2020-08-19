@@ -7,14 +7,21 @@
             <div class="text-white">QuitoGas</div>
             </div>
             <div class="list-group list-group-flush" >
-               
+               <!--Rol uno administrador -->
                 <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/cliente']" > <i class="fa fa-user-circle-o"></i>  Cliente </a>
-                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/gas']"><i class="fa fa-file-text"></i>  Gas</a>
-                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedido']"><i class="fa fa-file-text"></i>  Pedido</a>
-                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/sucursal']"><i class="fa fa-users"></i>  Sucursal</a>
-                <a *ngIf="rol == '2' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/sucursalesCli']"><i class="fa fa-users"></i>  Sucursales</a>
-                <a *ngIf="rol == '2' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedidosCli']"><i class="fa fa-users"></i>  Pedidos</a>
+                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/gas']"><i class="fa fa-opencart"></i>  Productos</a>
+                <a *ngIf="rol == '1' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/sucursal']"><i class="fa fa-users"></i>  Sucursales</a>
+               
+                <!--Rol uno sucursal -->
+                <a *ngIf="rol == '2' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedidosPendientesSucur']" > <i class="fa fa-list"></i>  Pedidos pendientes </a>
+                <a *ngIf="rol == '2' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedidosEntegadosSucur']"><i class="fa fa-indent"></i>  Pedidos entregados</a>
 
+                <!--Rol uno cliente --> 
+                <a *ngIf="rol == '3' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/sucursalesCli']"><i class="fa fa-users"></i>  Sucursales</a>
+                <a *ngIf="rol == '3' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pendientesCli']"><i class="fa fa-list"></i>  Pedidos pendientes</a>
+                <a *ngIf="rol == '3' " class="list-group-item list-group-item-action bg-primary text-white" [routerLink]="['/pedidosCli']"><i class="fa fa-indent"></i>  Pedidos entregados</a>
+
+                
                 
             </div>
      </div>

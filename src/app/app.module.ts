@@ -17,6 +17,7 @@ import { GoogleMapsModule} from '@angular/google-maps'
     HomeComponent,
     RegistroComponent,
     LoginComponent,
+  
     
 
   ],

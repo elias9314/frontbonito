@@ -66,7 +66,7 @@ this.formularioTipo();
           var rol =response['Login'][0]["id_rol"]
           localStorage.setItem("rol",rol)
           localStorage.setItem("userToken",response['token'])
-          this.router.navigate(['/cliente'])
+          this.router.navigate(['/homeLogin'])
         }else{
           Swal.fire(
             'Halgo ha salido mal!',
