@@ -32,7 +32,7 @@
     background-size: cover;
   }
   .view {
-   height: 670px !important;
+   height: auto !important;
   }
   .btn .fa {
     margin-left: 3px;
@@ -43,7 +43,7 @@
   .navbar:not(.top-nav-collapse) {
     background: transparent !important;
   }
-  @media (max-width: 768px) {
+  @media (max-width: auto) {
     .navbar:not(.top-nav-collapse) {
       background: #424f95 !important;
     }

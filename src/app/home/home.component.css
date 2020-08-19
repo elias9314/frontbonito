@@ -29,13 +29,13 @@
   .rgba-gradient .full-bg-img {
     background: linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
   }
-  @media (max-width: 460px) {
+  @media (max-width: auto) {
     .margins {
       margin-right: 1rem;
       margin-left: 1rem;
     }
   }
-  @media (max-width: 750px) {
+  @media (max-width: auto) {
     .full-height,
     .full-height body,
     .full-height header,
