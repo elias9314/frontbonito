@@ -2,28 +2,32 @@
     <section class="view intro-2 rgba-gradient">
         <div class="full-bg-img">
           <div class="container flex-center">
-    <form class="form-signin" name="USUARIOS" method="POST" #f="ngForm">
+    <form  [formGroup]="registroForm" class="form-signin" method="POST" #f="ngForm">
         <h1 class="text-white">REGISTRO</h1>
-        <input type="text" id="inputNombre" class="form-control" name="nombre" [(ngModel)]="usuarioSeleccionado.nombre_usuario" placeholder="Nombres" required autofocus>
-        
-        <input type="text" id="inputApellido" class="form-control" name="apellido"  [(ngModel)]="usuarioSeleccionado.apellido_usuario" placeholder="Apellidos" required autofocus>
-        
-        <input type="number" id="inputCedula" class="form-control" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cédula" required autofocus>
-       
-        <input type="number" id="inputTelefono" class="form-control" name="telefono"  [(ngModel)]="usuarioSeleccionado.telefono_usuario" placeholder="Teléfono" required autofocus>
-        <div>
-            <input type="text" id="inputDireccion" class="form-control" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Dirección" required autofocus >
-            <google-map width="470" height= "200" [center] = "position">
-            </google-map>
+        <input type="text" formControlName="nombre" class="form-control" name="nombre" [(ngModel)]="usuarioSeleccionado.nombre_usuario" placeholder="Nombres" required >
+        <div class="alert-danger" *ngIf="nombre.invalid &&(nombre.dirty || nombre.touched)">
+            <div class="container-error-mensage " *ngIf="nombre.invalid">
+                verifica tu Nombre
+            </div>
+        </div>
 
-            
+        <input type="text" formControlName="apellido" class="form-control" name="apellido"  [(ngModel)]="usuarioSeleccionado.apellido_usuario" placeholder="Apellidos" required >
+        
+        <input type="number" formControlName="cedula" class="form-control" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cédula" required >
+       
+        <input type="number" formControlName="telefono" class="form-control" name="telefono"  [(ngModel)]="usuarioSeleccionado.telefono_usuario" placeholder="Teléfono" required >
+        <div>
+            <input type="text" formControlName="direccion" class="form-control" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Dirección" required >
+            <!-- <google-map width="470" height= "200" [center] = "position">
+            </google-map> -->
+   
         </div>
         
        
-        <input type="email" id="inputCorreo" class="form-control" name="correo"  [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo" required autofocus>
+        <input type="email" formControlName="correo" class="form-control" name="correo"  [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo" required >
     
-        <input type="password" id="inputPassword" class="form-control"name="password"  [(ngModel)]="usuarioSeleccionado.password_usuario" placeholder="Contraseña" required autofocus>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="postUsuario()">Aceptar</button>
+        <input type="password" formControlName="password" class="form-control"name="password"  [(ngModel)]="usuarioSeleccionado.password_usuario" placeholder="Contraseña" required >
+        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="postUsuario()"[disabled]="f.form.invalid" >Aceptar</button>
     </form>
             </div>
           </div>

@@ -29,6 +29,7 @@ export class SidebarComponent implements OnInit {
   sucursalesCliente;
   usuario : Usuario;
   menuItems: any[];
+
   rol = localStorage.getItem("rol")
 
   constructor(public router: Router,private service: ServiceService) { }

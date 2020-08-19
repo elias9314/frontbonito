@@ -11,9 +11,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 import { GoogleMapsModule} from '@angular/google-maps'
-import { AgmCoreModule } from '@agm/core';
-
-
 @NgModule({
   declarations: [
     AppComponent,
