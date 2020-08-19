@@ -15,7 +15,7 @@
                 <div class="col-6" *ngFor="let cli of sucursalesCliente">
                     <article class="articles">
                         
-                        <button>Pidelo ya!!</button> 
+                        <button routerLink="/realizarPedidosCli/{{cli['id_usuario']}}/{{cli['id_sucursal']}}/{{cli['id_producto']}}">Pidelo ya!!</button> 
                         <h2>{{cli['nombre_sucursal']}}</h2>              
                         <h5>Direccion: </h5>
                         <p>{{cli['direccion_usuario']}}</p>

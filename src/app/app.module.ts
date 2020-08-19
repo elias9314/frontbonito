@@ -20,6 +20,7 @@ import { AgmCoreModule } from '@agm/core';
     HomeComponent,
     RegistroComponent,
     LoginComponent,
+  
     
 
   ],

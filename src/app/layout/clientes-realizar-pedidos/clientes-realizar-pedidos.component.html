@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <div class="menu">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="componente">
+        <app-navbar></app-navbar>
+
+        <h1>Realizacion de pedido</h1><br>
+        <div class="container">
+
+            <form  method="POST" class="formPedido">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="cantidad">Ingrese Cantidad</label>
+                        <input type="number" class="form-control" name="cantidad" id="cantidad"
+                            [(ngModel)]="pedido.cantidad_pedido" placeholder="Cantidad">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="fechaEntrega">Fecha de entega</label>
+                        <input type="date" class="form-control" id="fechaEntrega" name="fechaEntrega"
+                            [(ngModel)]="pedido.fecha_entrega_pedido" placeholder="Fecha Entrega">
+                    </div>
+                    
+                </div>
+                <input type="submit" value="Confirmar Pedido" class="button" (click)="realizarPedido()">
+
+
+
+            </form>
+
+
+
+
+
+            <div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
