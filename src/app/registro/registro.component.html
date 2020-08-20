@@ -4,30 +4,107 @@
           <div class="container flex-center">
     <form  [formGroup]="registroForm" class="form-signin" method="POST" #f="ngForm">
         <h1 class="text-white">REGISTRO</h1>
-        <input type="text" formControlName="nombre" class="form-control" name="nombre" [(ngModel)]="usuarioSeleccionado.nombre_usuario" placeholder="Nombres" required >
+        <div>
+            <input type="text" formControlName="nombre" class="form-control" name="nombre" [(ngModel)]="usuarioSeleccionado.nombre_usuario" placeholder="Nombres" required >
         <div class="alert-danger" *ngIf="nombre.invalid &&(nombre.dirty || nombre.touched)">
             <div class="container-error-mensage " *ngIf="nombre.invalid">
-                verifica tu Nombre
+                Campo requerido
+            </div>
+            <div class="container-error-mensage "
+             *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid &&
+             nombre.errors.pattern">
+                comprobar caracteristicas
             </div>
         </div>
-
-        <input type="text" formControlName="apellido" class="form-control" name="apellido"  [(ngModel)]="usuarioSeleccionado.apellido_usuario" placeholder="Apellidos" required >
-        
-        <input type="number" formControlName="cedula" class="form-control" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cédula" required >
-       
+        </div>
+        <br>
+        <div>
+            <input type="text" formControlName="apellido" class="form-control" name="apellido"  [(ngModel)]="usuarioSeleccionado.apellido_usuario" placeholder="Apellidos" required >
+            <div class="alert-danger" *ngIf="apellido.invalid &&(apellido.dirty || apellido.touched)">
+                <div class="container-error-mensage " *ngIf="apellido.invalid">
+                    Campo requerido
+                </div>
+                <div class="container-error-mensage "
+                 *ngIf="(apellido.dirty || apellido.touched) && apellido.invalid &&
+                 apellido.errors.pattern">
+                    comprobar caracteristicas
+                </div>
+            </div>
+        </div>
+        <br>    
+        <div>
+            <input type="number" formControlName="cedula" class="form-control" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cédula" required >
+            <div class="alert-danger" *ngIf="cedula.invalid &&(cedula.dirty || cedula.touched)">
+                <div class="container-error-mensage " *ngIf="cedula.invalid">
+                    Campo requerido
+                </div>
+                <div class="container-error-mensage "
+                 *ngIf="(cedula.dirty || cedula.touched) && cedula.invalid &&
+                 cedula.errors.pattern">
+                    minimo 7 máximo 10 números
+                </div>
+            </div>
+        </div>    
+       <br>
+       <div>
         <input type="number" formControlName="telefono" class="form-control" name="telefono"  [(ngModel)]="usuarioSeleccionado.telefono_usuario" placeholder="Teléfono" required >
+        <div class="alert-danger" *ngIf="telefono.invalid &&(telefono.dirty || telefono.touched)">
+            <div class="container-error-mensage " *ngIf="telefono.invalid">
+                Campo requerido
+            </div>
+            <div class="container-error-mensage "
+             *ngIf="(telefono.dirty || telefono.touched) && telefono.invalid &&
+             telefono.errors.pattern">
+                minimo 7 máximo 10 números
+            </div>
+        </div>
+       </div>
+       <br>
         <div>
             <input type="text" formControlName="direccion" class="form-control" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Dirección" required >
-            <!-- <google-map width="470" height= "200" [center] = "position">
-            </google-map> -->
-   
+            <div class="alert-danger" *ngIf="direccion.invalid &&(direccion.dirty || direccion.touched)">
+                <div class="container-error-mensage " *ngIf="direccion.invalid">
+                    Campo requerido
+                </div>
+                <div class="container-error-mensage "
+                 *ngIf="(direccion.dirty || direccion.touched) && direccion.invalid &&
+                 direccion.errors.pattern">
+                    Caracteristicas no autorizadas
+                </div>
+            </div>
         </div>
-        
-       
-        <input type="email" formControlName="correo" class="form-control" name="correo"  [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo" required >
-    
-        <input type="password" formControlName="password" class="form-control"name="password"  [(ngModel)]="usuarioSeleccionado.password_usuario" placeholder="Contraseña" required >
-        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="postUsuario()"[disabled]="f.form.invalid" >Aceptar</button>
+        <br>
+        <div>
+            <input type="email" formControlName="correo" class="form-control" name="correo"  [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo" required >
+            <div class="alert-danger" *ngIf="correo.invalid &&(correo.dirty || correo.touched)">
+                <div class="container-error-mensage " *ngIf="correo.invalid">
+                    Campo requerido
+                </div>
+                <div class="container-error-mensage "
+                 *ngIf="(correo.dirty || correo.touched) && correo.invalid &&
+                 correo.errors.pattern">
+                    No es un tipo de correo
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="input-group mb-3">
+                <input  formControlName="password" [type]="hide ? 'password': 'text'" id="inputPassword" class="form-control" placeholder="Contraseña"
+                    name="password" [(ngModel)]="usuarioSeleccionado.password_usuario" required>
+                <div class="input-group-append">         
+                <button  class="btn btn-primary" (click)="hide =!hide">
+                {{hide ? 'mostrar': 'ocultar'}}
+                </button>
+                </div>
+            </div>
+            <div class="alert-danger" *ngIf="password.invalid &&(password.dirty || password.touched)">
+                <div class="container-error-mensage " *ngIf="password.invalid">
+                    Campo requerido
+                </div>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="postUsuario()" [disabled]="!registroForm.valid">Aceptar</button>
     </form>
             </div>
           </div>

@@ -9,7 +9,7 @@
    height: auto !important;
   }
   .btn .fa {
-    margin-left: 3px;
+    margin-left: 100px;
   }
   .top-nav-collapse {
     background-color: #424f95 !important;
@@ -18,7 +18,7 @@
   .navbar:not(.top-nav-collapse) {
     background: transparent !important;
   }
-  @media (max-width: 768px) {
+  @media (max-width: auto) {
     .navbar:not(.top-nav-collapse) {
       background: #424f95 !important;
     }
@@ -40,6 +40,6 @@
     .full-height body,
     .full-height header,
     .full-height header .view {
-      height: 1020px;
+      height: auto;
     }
   }
