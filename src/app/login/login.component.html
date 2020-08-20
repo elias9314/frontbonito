@@ -34,6 +34,11 @@
             <div class="container-error-mensage " *ngIf="correo.invalid">
                 se necesita tener este campo
             </div>
+            <div class="container-error-mensage "
+             *ngIf="(correo.dirty || correo.touched) && correo.invalid &&
+             correo.errors.pattern">
+                comprobar caracteristicas
+            </div>
         </div>
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <div>

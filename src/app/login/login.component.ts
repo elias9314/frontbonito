@@ -12,13 +12,10 @@ import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-patternnombres ="([a-zA-ZÀ-ÿ\u00f1\u00d1\.][^\s]*)+$";
-patternnumero="[0-9]{7,10}$";
-patternweb="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,4}$";
-patterncorreo="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-patterfinan="[0-9]*";
-patterndireccion = "([a-zA-ZÀ-ÿ\u00f1\u00d1\.0-9][^\s]*)+$";
-patternpassword ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}";
+
+private patterncorreo : any ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+
+ private patternpassword : any ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}";
 
   logeo: Array<Usuario>;
   logeos: Usuario;
@@ -30,10 +27,6 @@ patternpassword ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}";
   constructor(private service: ServiceService,private router: Router,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-  //   this.loginForm = this.formBuilder.group({
-  //     correo: ['', Validators.required],
-  //     password: ['', Validators.required]
-  // });
 
 this.formularioTipo();
     this.logeos = new Usuario();
@@ -42,7 +35,7 @@ this.formularioTipo();
 
      formularioTipo() {
      return this.loginForm = new FormGroup({
-         correo: new FormControl('', [Validators.required]),
+         correo: new FormControl('', [Validators.required, Validators.pattern(this.patterncorreo)]),
          password: new FormControl('', [Validators.required])
 
      });
