@@ -11,7 +11,7 @@ export class Usuario {
     password_usuario: string;
 
     constructor() {
-        this.id_rol = 1 ;
+        this.id_rol = 3 ;
         this.nombre_usuario = '';
         this.apellido_usuario = '';
         this.cedula_usuario = '';

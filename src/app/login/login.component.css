@@ -32,7 +32,8 @@
     background-size: cover;
   }
   .view {
-   height: auto !important;
+    height: 21cm !important;
+   
   }
   .btn .fa {
     margin-left: 3px;
@@ -53,5 +54,6 @@
   }
   .rgba-gradient .full-bg-img {
     background: linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 120%);
+    height: 21cm !important;
   }
   

@@ -15,13 +15,14 @@ import { ClientesRealizarPedidosComponent } from './clientes-realizar-pedidos/cl
 import { ClientesPedidosEntregadosComponent } from './clientes-pedidos-entregados/clientes-pedidos-entregados.component';
 import { LoginBienvenidaComponent } from './login-bienvenida/login-bienvenida.component';
 import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pendientes.component';
-import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component'
+import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component';
+import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component'
 
 
 @NgModule({
   declarations: [ClienteComponent, GasComponent, PedidoComponent, SucursalComponent,
      SidebarComponent, NavbarComponent,ClienteSucursalesComponent,PedidosClienteComponent,
-    ClientesRealizarPedidosComponent,ClientesPedidosEntregadosComponent, LoginBienvenidaComponent, SucursalPendientesComponent, SucursalEntregadosComponent],
+    ClientesRealizarPedidosComponent,ClientesPedidosEntregadosComponent, LoginBienvenidaComponent, SucursalPendientesComponent, SucursalEntregadosComponent, ConfirmarEntregaComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

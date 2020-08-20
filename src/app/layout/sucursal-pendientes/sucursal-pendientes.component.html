@@ -10,6 +10,29 @@
         <div class="container">
 
 
+            <div class="row justify-content-around">
+                <div class="col-6" *ngFor="let penSucursal of PedidosPendientesSucursal">
+                    <article class="articles" >
+                        
+                        <button routerLink="/pedidosEntegadosSucur/confirmarEntrega/{{penSucursal.id_pedido}}">Pidelo ya!!</button>  
+                            <h2>Nombre usuario</h2>
+                            <h5>Direccion: </h5>
+                            <p>Direccion del entrega</p>
+                            <h5>Fecha de entrega: </h5>
+                            <p>{{penSucursal.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</p>
+                            <h5>Cantidad: </h5>
+                            <p>{{penSucursal.cantidad_pedido}}</p>
+                            <h5>Total a pagar: </h5>
+                            <p><b>$ </b>{{penSucursal.total}} Dolares</p>
+                            
+                                          
+                     
+                    </article>
+                </div>
+              
+              </div>
+    
+
             <div> 
         
 

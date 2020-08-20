@@ -37,20 +37,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
     this.menuItems = ROUTES.filter(menuItem => menuItem);
-    this.getSucrisalesClientes()
+   
   }
 
 
-  getSucrisalesClientes(){
-    this.service.get('/sucursales').subscribe(
-      response => {
-        this.sucursalesCliente = response['sucursales'];
-       console.log(response['sucursales']);
-      },
-      error => {
-        console.log('error');
-      }
-    );
-   }
 
 }

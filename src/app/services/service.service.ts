@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
-
+  headers;
   constructor(private http: HttpClient) { }
 
 
@@ -35,6 +35,16 @@ export class ServiceService {
     }
 
   }
+
+
+  infoToken(url: string) {
+    this.headers = new HttpHeaders().set('x-access-token',localStorage.getItem('userToken'));
+    this.headers.set('Content-Type', 'application/json');
+    return this.http.get(environment.API_URL + url, {headers: this.headers});
+}
+
+
+
 
 
 }
