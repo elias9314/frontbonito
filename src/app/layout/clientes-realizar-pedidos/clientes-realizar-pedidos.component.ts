@@ -13,14 +13,24 @@ import Swal from 'sweetalert2';
 export class ClientesRealizarPedidosComponent implements OnInit {
 
   pedido = new Pedido();
-
+  infoIdUsuario
   constructor(private service: ServiceService, private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
-
-
+    this.getinfoClientes()
   }
 
+  getinfoClientes(){
+    this.service.infoToken('/profile').subscribe(
+      response => {
+        this.infoIdUsuario = response[0]
+      console.log(response[0]['id_usuario']);
+      },
+      error => {
+        console.log('error');
+      }
+    );
+   }
 
   realizarPedido() {
     Swal.fire({
@@ -32,7 +42,8 @@ export class ClientesRealizarPedidosComponent implements OnInit {
       cancelButtonText: 'No, no deseo continuar'
     }).then((result) => {
       if (result.value) {
-        this.pedido.id_usuario = this.route.params['value']['id_usuario'];
+       // this.pedido.id_usuario = this.route.params['value']['id_usuario'];
+        this.pedido.id_usuario = this.infoIdUsuario['id_usuario'];
         this.pedido.id_sucursal = this.route.params['value']['id_sucursal'];
         this.pedido.id_producto = this.route.params['value']['id_producto'];
         this.service.post('/pedido', (this.pedido)).subscribe(

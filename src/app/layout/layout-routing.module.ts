@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'cliente', component: ClienteComponent , canActivate: [AuthGuard]},
   {path: 'pedido', component: PedidoComponent,canActivate: [AuthGuard]},
   {path: 'sucursalesCli', component: ClienteSucursalesComponent,canActivate: [AuthGuard]},
-  {path: 'realizarPedidosCli/:id_usuario/:id_sucursal/:id_producto', component: ClientesRealizarPedidosComponent,canActivate: [AuthGuard]},
+  {path: 'realizarPedidosCli/:id_sucursal/:id_producto', component: ClientesRealizarPedidosComponent,canActivate: [AuthGuard]},
   {path: 'pendientesCli', component: PedidosClienteComponent,canActivate: [AuthGuard]},
   {path: 'pedidosCli', component: ClientesPedidosEntregadosComponent,canActivate: [AuthGuard]},
   {path: 'homeLogin', component: LoginBienvenidaComponent,canActivate: [AuthGuard]},

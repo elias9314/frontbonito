@@ -8,7 +8,7 @@ import { ServiceService} from '../../services/service.service';
   styleUrls: ['./cliente-sucursales.component.css']
 })
 export class ClienteSucursalesComponent implements OnInit {
-  infoIdUsuario
+  infoIdUsuario;
   sucursalesCliente;
   todo
   constructor(private service: ServiceService) { }
@@ -16,16 +16,15 @@ export class ClienteSucursalesComponent implements OnInit {
   ngOnInit(): void {
     this.getSucrisalesClientes();
     this.getinfoClientes();
-    setTimeout(() => {
-      this.volver()
-    }, 500);
+   
+   
   }
 
   getinfoClientes(){
     this.service.infoToken('/profile').subscribe(
       response => {
         this.infoIdUsuario = response[0]
-     //  console.log(response[0]['id_usuario']);
+      console.log(response[0]['id_usuario']);
       },
       error => {
         console.log('error');
@@ -46,12 +45,8 @@ export class ClienteSucursalesComponent implements OnInit {
     );
    }
 
-   volver(){
-    
-   this.todo =  [this.sucursalesCliente.concat(this.infoIdUsuario)]
-   console.log(this.todo)
-  }
-  
+
+ 
 }
 
 
