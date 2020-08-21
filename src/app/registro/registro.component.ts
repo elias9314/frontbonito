@@ -5,7 +5,7 @@ import { Usuario} from '../models/usuario';
 import Swal from 'sweetalert2';
 import {Marcador} from '../classes/marcador.class'
 import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
- 
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
   marcadores:  Marcador[] =[];
 
 
-  constructor(private service: ServiceService,private formBuilder: FormBuilder) {
+  constructor(private service: ServiceService,private formBuilder: FormBuilder,  private router : Router) {
 
    }
 
@@ -62,13 +62,15 @@ get password() {return this.registroForm.get('password'); }
   postUsuario() {
     this.service.post('/user', { usuario: this.usuarioSeleccionado }).subscribe(
       response => {
-        console.log(response);
+        
         Swal.fire(
           'Gracias',
           'Registro exitoso',
-          'success'
+          'success',  
         );
+        this.router.navigate(['/login'])
       },
+      
       error => {
         console.log('error');
       }
