@@ -22,11 +22,11 @@ export class SucursalPendientesComponent implements OnInit {
     
     setTimeout(() => {
       this.getIdSucursal();
-    }, 500);
+    }, 200);
 
     setTimeout(() => {
       this.getPedidosPendientesSucursal();
-    }, 1000);
+    }, 500);
 
     
   }
@@ -57,7 +57,7 @@ export class SucursalPendientesComponent implements OnInit {
    }
 
    getPedidosPendientesSucursal(){
-    this.service.get('/pedidosPen/' + this.infoIdSucursal['id_sucursal']).subscribe(
+    this.service.get('/pedidosUserPen/' + this.infoIdSucursal['id_sucursal']).subscribe(
       response => {
         this.PedidosPendientesSucursal = response['productos']
       console.log(response);

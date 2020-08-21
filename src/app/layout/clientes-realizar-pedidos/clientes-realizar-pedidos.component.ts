@@ -51,7 +51,7 @@ export class ClientesRealizarPedidosComponent implements OnInit {
               setTimeout(() => {
                  this.router.navigate(['/sucursalesCli'])
 
-              }, 3000);
+              }, 1000);
 
             }
           },

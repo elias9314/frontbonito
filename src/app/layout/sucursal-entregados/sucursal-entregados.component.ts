@@ -10,7 +10,7 @@ import { ServiceService} from '../../services/service.service';
 export class SucursalEntregadosComponent implements OnInit {
   infoIdUsuario;
   infoIdSucursal;
-  PedidosPendientesSucursal;
+  PedidosEntregadosSucursal;
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
@@ -18,11 +18,11 @@ export class SucursalEntregadosComponent implements OnInit {
     
     setTimeout(() => {
       this.getIdSucursal();
-    }, 500);
+    }, 200);
 
     setTimeout(() => {
       this.getPedidosPendientesSucursal();
-    }, 1000);
+    }, 500);
   }
 
   
@@ -52,10 +52,10 @@ export class SucursalEntregadosComponent implements OnInit {
    }
 
    getPedidosPendientesSucursal(){
-    this.service.get('/pedidosVen/' + this.infoIdSucursal['id_sucursal']).subscribe(
+    this.service.get('/pedidosUserVen/' + this.infoIdSucursal['id_sucursal']).subscribe(
       response => {
-        this.PedidosPendientesSucursal = response['productos']
-      // console.log(response);
+        this.PedidosEntregadosSucursal = response['productos']
+        console.log(response);
       },
       error => {
         console.log('error');

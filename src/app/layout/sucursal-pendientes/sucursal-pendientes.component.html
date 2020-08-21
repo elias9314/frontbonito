@@ -6,7 +6,7 @@
     <div class="componente">
         <app-navbar></app-navbar>
 
-        <h1>Pedidos Pendientes</h1><br>  
+        <h1>Sucursal<h3>Pedidos Pendientes</h3></h1><br>
         <div class="container">
 
 
@@ -14,16 +14,17 @@
                 <div class="col-6" *ngFor="let penSucursal of PedidosPendientesSucursal">
                     <article class="articles" >
                         
-                        <button routerLink="/pedidosEntegadosSucur/confirmarEntrega/{{penSucursal.id_pedido}}">Pidelo ya!!</button>  
-                            <h2>Nombre usuario</h2>
+                        <button routerLink="/pedidosEntegadosSucur/confirmarEntrega/{{penSucursal.id_pedido}}">Confirmar entrega!!</button>  
+                            <h2>{{penSucursal.nombre_usuario}} <h2>{{penSucursal.apellido_usuario}}</h2> </h2>
                             <h5>Direccion: </h5>
-                            <p>Direccion del entrega</p>
+                            <p>{{penSucursal.direccion_usuario}}</p>
                             <h5>Fecha de entrega: </h5>
                             <p>{{penSucursal.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</p>
                             <h5>Cantidad: </h5>
                             <p>{{penSucursal.cantidad_pedido}}</p>
                             <h5>Total a pagar: </h5>
                             <p><b>$ </b>{{penSucursal.total}} Dolares</p>
+                            <h5>Estado de entrega: <b>{{penSucursal.estado_pedido}}</b> </h5>
                             
                                           
                      

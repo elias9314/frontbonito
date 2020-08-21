@@ -6,8 +6,25 @@
     <div class="componente">
         <app-navbar></app-navbar>
 
-        <h1>Pedidos entregados</h1><br>  
+        <h1>Cliente <h3>Pedidos entregados</h3></h1><br>  
         <div class="container">
+
+            <div class="row justify-content-around">
+                <div class="col-6" *ngFor="let cli of pedidosEntregadosCliente">
+                    <article class="articles">
+                        <h2>{{cli['nombre_usuario']}}</h2>              
+                        <h2>{{cli['apellido_usuario']}}</h2>                        
+                        <h5>Fecha de entrega: </h5>
+                        <p>{{cli.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</p>
+                        <h5>Total a pagar: </h5>
+                        <p>{{cli['total']}}</p>
+                         <h5>Estado del pedido: </h5>
+                        <p>{{cli['estado_pedido']}}</p>
+                         
+                    </article>
+                </div>
+              
+              </div>
             <div> 
         
 

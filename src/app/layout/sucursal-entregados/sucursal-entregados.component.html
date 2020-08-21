@@ -6,8 +6,29 @@
     <div class="componente">
         <app-navbar></app-navbar>
 
-        <h1>Pedidos Entregados</h1><br>  
+        <h1>Sucursal<h3>Pedidos Entregados</h3></h1><br>    
         <div class="container">
+
+            <div class="row justify-content-around">
+                <div class="col-6" *ngFor="let entreSucursal of PedidosEntregadosSucursal">
+                    <article class="articles" >
+                        
+                            <h2>{{entreSucursal.nombre_usuario}} <h2>{{entreSucursal.apellido_usuario}}</h2> </h2>
+                            <h5>Fecha de entrega: </h5>
+                            <p>{{entreSucursal.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</p>
+                            <h5>Cantidad: </h5>
+                            <p>{{entreSucursal.cantidad_pedido}}</p>
+                            <h5>Total a pagar: </h5>
+                            <p><b>$ </b>{{entreSucursal.total}} Dolares</p>
+                            <h5>Estado de entrega: <b>{{entreSucursal.estado_pedido}}</b> </h5>
+                            
+                                          
+                     
+                    </article>
+                </div>
+              
+              </div>
+
             <div> 
         
 

@@ -12,16 +12,16 @@
         
 
               <div class="row justify-content-around">
-                <div class="col-6" *ngFor="let cli of sucursalesCliente">
+                <div class="col-6" *ngFor="let cli of todo">
                     <article class="articles">
-                        
-                        <button routerLink="/realizarPedidosCli/{{cli['id_usuario']}}/{{cli['id_sucursal']}}/{{cli['id_producto']}}">Pidelo ya!!</button> 
-                        <h2>{{cli['nombre_sucursal']}}</h2>              
+                        <button routerLink="/realizarPedidosCli/{{cli[1]['id_usuario']}}/{{cli[0]['id_sucursal']}}/{{cli[0]['id_producto']}}">Pidelo ya!!</button> 
+
+                        <h2>{{cli[0]['nombre_sucursal']}}</h2>              
                         <h5>Direccion: </h5>
-                        <p>{{cli['direccion_usuario']}}</p>
+                        <p>{{cli[0]['direccion_sucursal']}}</p>
                         <h5>Contactos</h5>
-                        <p>{{cli['correo_sucursal']}} // {{cli['telefono_sucursal']}}</p>
-                        <h3>Precio: ${{cli['precio_producto']}}  -  Stock: {{cli['stock_sucursal']}}</h3>  
+                        <p>{{cli[0]['correo_sucursal']}} // {{cli[0]['telefono_sucursal']}}</p>
+                        <h3>Precio: ${{cli[0]['precio_producto']}}  -  Stock: {{cli[0]['stock_sucursal']}}</h3>  
                     </article>
                 </div>
               

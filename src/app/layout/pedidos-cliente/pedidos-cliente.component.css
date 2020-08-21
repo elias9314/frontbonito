@@ -1,57 +1,57 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 0px;
-    grid-auto-rows: minmax(100px, auto);
-  }
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0px;
+  grid-auto-rows: minmax(100px, auto);
+}
 
-  .componente { 
-    grid-column: 2 / 9;
-    grid-row: 0 ;
-  }
-  .menu {
-    grid-column: 0;
-    grid-row: 0;
-    
-  }
-  .articles{
-    padding-bottom: 25px;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 25px;  
-    border-radius: 10px;
-    border: solid 1px rgb(99, 140, 255);
-    margin-top: 20px;
-    
-  }
-  .articles button{
+.componente { 
+  grid-column: 2 / 9;
+  grid-row: 0 ;
+}
+.menu {
+  grid-column: 0;
+  grid-row: 0;
+  
+}
+.articles{
+  padding-bottom: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 25px;  
+  border-radius: 10px;
+  border: solid 1px rgb(99, 140, 255);
+  margin-top: 20px;
+  
+}
+.articles button{
 
-  float: right;
-  background: rgb(99, 140, 255);
-  color: white;
-  width: 4cm;
-  height: 3.5cm;
-  border-radius: 20px;
-  border: none;
-  font-size: 30px;
-  }
+float: right;
+background: rgb(99, 140, 255);
+color: white;
+width: 4cm;
+height: 3.5cm;
+border-radius: 20px;
+border: none;
+font-size: 30px;
+}
 
 .articles p{
-    font-size: 17px;
+  font-size: 17px;
 }
 
 .articles h2{
-      font-size: 30px;
+    font-size: 30px;
 }
 
 .articles h3{
-  font-size: 20px;
-  float: right;
+font-size: 20px;
+float: right;
 }
 
 .ex3 {
- 
-  width: 30cm;
-  height: auto;
-  overflow: auto;
+
+width: 30cm;
+height: auto;
+overflow: auto;
 }
