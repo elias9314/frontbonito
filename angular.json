@@ -26,9 +26,11 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/styles.css",
+              "src/assets/leaflet/leaflet.css"
             ],
-            "scripts": []
+            "scripts": ["src/assets/leaflet/leaflet.js"]
           },
           "configurations": {
             "production": {
