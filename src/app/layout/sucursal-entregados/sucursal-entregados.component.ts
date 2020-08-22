@@ -9,7 +9,7 @@ import { ServiceService} from '../../services/service.service';
 })
 export class SucursalEntregadosComponent implements OnInit {
   infoIdUsuario;
-  infoIdSucursal;
+  infoIdSucursal: { [x: string]: string; };
   PedidosEntregadosSucursal;
   constructor(private service: ServiceService) { }
 
@@ -43,7 +43,7 @@ export class SucursalEntregadosComponent implements OnInit {
     this.service.get('/infoSucursal/' + this.infoIdUsuario['id_usuario']).subscribe(
       response => {
         this.infoIdSucursal =  response[0];
-     //  console.log(response[0]);
+      console.log(response[0]);
       },
       error => {
         console.log('error');

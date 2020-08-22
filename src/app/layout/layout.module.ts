@@ -8,7 +8,7 @@ import { PedidoComponent } from './pedido/pedido.component';
 import { SucursalComponent } from './sucursal/sucursal.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ClienteSucursalesComponent } from './cliente-sucursales/cliente-sucursales.component';
 import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.component';
 import { ClientesRealizarPedidosComponent } from './clientes-realizar-pedidos/clientes-realizar-pedidos.component';
@@ -29,8 +29,12 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     CommonModule,
     LayoutRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     LeafletModule
 
+=======
+    ReactiveFormsModule
+>>>>>>> cc346203e012cd5d28bbba03f59a9ba95ae63c33
     
   ]
 })

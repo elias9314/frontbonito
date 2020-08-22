@@ -1,18 +1,19 @@
 
-<div class="wrapper"> 
+<div class="wrapper">
     <div class="menu">
         <app-sidebar></app-sidebar>
     </div>
     <div class="componente">
         <app-navbar></app-navbar>
 
-        <h1>Clientes</h1><br>  
+        <h1>Clientes</h1><br>
         <div class="container">
             <div>
-                <button type="button" class="btn btn-primary" (click)="agregarCliente(contentCliente,null)">AGREGAR</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="agregarCliente(contentCliente,null)">AGREGAR</button>
             </div><br>
             <table class="table">
-                <thead class="thead-Primary"> 
+                <thead class="thead-Primary">
                     <tr>
                         <th scope="col">ROL</th>
                         <th scope="col">NOMBRE</th>
@@ -33,7 +34,9 @@
                         <td>{{usu.direccion_usuario}}</td>
                         <td>{{usu.correo_usuario}}</td>
                         <td>
-                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar" (click)="agregarCliente(contentCliente,usu)" title="Actualizar" *ngIf="usu.id_usuario != usuario.id_usuario"><i class="fa fa-pencil"
+                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar"
+                                (click)="agregarCliente(contentCliente,usu)" title="Actualizar"
+                                *ngIf="usu.id_usuario != usuario.id_usuario"><i class="fa fa-pencil"
                                     aria-hidden="true"></i>
                             </button>
                         </td>
@@ -42,63 +45,149 @@
             </table>
         </div>
 
-<!----->
-<ng-template #contentCliente let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <div class="row">
-            <h3 class="col-12 text-center" name="titulo">Cliente</h3>
-        </div>
-    </div>
-    <div class="modal-body">
-<form name="USUARIOS" method="POST" #f="ngForm">
-    <div class="row">
-        <div class="col-md-6">
-            <label for="nombre">Nombre</label>
-      <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="usuarioSeleccionado.nombre_usuario" placeholder="Nombre">
-        </div>
-        <div class="col-md-6">
-            <label for="apellido">Apellido</label>
-      <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="usuarioSeleccionado.apellido_usuario" placeholder="Apellido">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label for="cedula">Cédula</label>
-            <input type="text" class="form-control" id="cedula" name="cedula" [(ngModel)]="usuarioSeleccionado.cedula_usuario" placeholder="Cédula">
-        </div>
-        <div class="col-md-6">
-            <label for="telefono">Teléfono</label>
-      <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="usuarioSeleccionado.telefono_usuario" placeholder="Télefono">
-        </div>
-    </div>
-    <div class="form-group">
-      <label for="correo">Correo</label>
-      <input type="text" class="form-control" id="correo" name="correo" [(ngModel)]="usuarioSeleccionado.correo_usuario" placeholder="Correo">
-    </div>
-    <div class="form-group">
-      <label for="direccion">Dirección</label>
-      <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="usuarioSeleccionado.direccion_usuario" placeholder="Dirección">
-    </div>
-   <div class="row">
-    <div class="col-md-6">
-        <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="usuarioSeleccionado.password_usuario" placeholder="Password">
-    </div>
-    <div class="col-md-6">
-        <label for="rol">Rol</label>
-        <select name="rol" id="rol" [(ngModel)]="usuarioSeleccionado.id_rol" class="form-control">
-          <option value="1">ADMINISTRADOR</option>
-          <option value="2">SUCURSAL</option>
-      </select>
-    </div>
-   </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="c('save')" [disabled]="f.form.invalid"><i class="fa fa-check" aria-hidden="true">&nbsp; Ok</i></button>
-        <button type="button" class="btn btn-danger" (click)="c('close')"><i class="fa fa-times-circle" aria-hidden="true">&nbsp; Cerrar</i></button>
-    </div>
-  </form>
-    </div>
-</ng-template>
+        <!----->
+        <ng-template #contentCliente let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <div class="row">
+                    <h3 class="col-12 text-center" name="titulo">Cliente</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="usuarioForm"  method="POST" #f="ngForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="nombre">Nombre</label>
+
+                            <input type="text" class="form-control" name="nombre"
+                                [(ngModel)]="usuarioSeleccionado.nombre_usuario" formControlName="nombre"
+                                placeholder="Nombre">
+                            <div class="alert-danger" *ngIf="nombre.invalid &&(nombre.dirty || nombre.touched)">
+                                <div class="container-error-mensage " *ngIf="nombre.invalid">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-mensage " *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid &&
+                            nombre.errors.pattern">
+                                    comprobar caracteristicas
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-6">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" name="apellido"
+                                [(ngModel)]="usuarioSeleccionado.apellido_usuario" formControlName="apellido"
+                                placeholder="Apellido">
+                            <div class="alert-danger" *ngIf="apellido.invalid &&(apellido.dirty || apellido.touched)">
+                                <div class="container-error-mensage " *ngIf="apellido.invalid">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-mensage " *ngIf="(apellido.dirty || apellido.touched) && apellido.invalid &&
+                                apellido.errors.pattern">
+                                    comprobar caracteristicas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="cedula">Cédula</label>
+                            <input type="text" class="form-control" name="cedula"
+                                [(ngModel)]="usuarioSeleccionado.cedula_usuario" formControlName="cedula"
+                                placeholder="Cédula">
+                            <div class="alert-danger" *ngIf="cedula.invalid &&(cedula.dirty || cedula.touched)">
+                                <div class="container-error-mensage " *ngIf="cedula.invalid">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-mensage " *ngIf="(cedula.dirty || cedula.touched) && cedula.invalid &&
+                            cedula.errors.pattern">
+                                    caracteristicas entre 7 y 10
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono"
+                                [(ngModel)]="usuarioSeleccionado.telefono_usuario" formControlName="telefono"
+                                placeholder="Télefono">
+                            <div class="alert-danger" *ngIf="telefono.invalid &&(telefono.dirty || telefono.touched)">
+                                <div class="container-error-mensage " *ngIf="telefono.invalid">
+                                    Campo requerido
+                                </div>
+                                <div class="container-error-mensage " *ngIf="(telefono.dirty || telefono.touched) && telefono.invalid &&
+                            telefono.errors.pattern">
+                                    caracteristicas entre 7 y 10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input type="text" class="form-control" id="correo" name="correo"
+                            [(ngModel)]="usuarioSeleccionado.correo_usuario" formControlName="correo"
+                            placeholder="Correo">
+                        <div class="alert-danger" *ngIf="correo.invalid &&(correo.dirty || correo.touched)">
+                            <div class="container-error-mensage " *ngIf="correo.invalid">
+                                Campo requerido
+                            </div>
+                            <div class="container-error-mensage " *ngIf="(correo.dirty || correo.touched) && correo.invalid &&
+                        correo.errors.pattern">
+                                caracteristicas de correo erróneas
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion"
+                            [(ngModel)]="usuarioSeleccionado.direccion_usuario" formControlName="direccion"
+                            placeholder="Dirección">
+                        <div class="alert-danger" *ngIf="direccion.invalid &&(direccion.dirty || direccion.touched)">
+                            <div class="container-error-mensage " *ngIf="direccion.invalid">
+                                Campo requerido
+                            </div>
+                            <div class="container-error-mensage " *ngIf="(direccion.dirty || direccion.touched) && direccion.invalid &&
+                                        direccion.errors.pattern">
+                                caracteristicas de correo erróneas
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="password">Password</label>
+                            <div class="input-group mb-3">
+                                <input formControlName="password" [type]="hide ? 'password': 'text'"
+                                    class="form-control" placeholder="Contraseña" name="password"
+                                    [(ngModel)]="usuarioSeleccionado.password_usuario" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" (click)="hide =!hide">
+                                        {{hide ? 'mostrar': 'ocultar'}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="alert-danger" *ngIf="password.invalid &&(password.dirty || password.touched)">
+                                <div class="container-error-mensage " *ngIf="password.invalid">
+                                    Campo requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="rol">Rol</label>
+                            <select name="rol" id="rol" class="form-control" [(ngModel)]="usuarioSeleccionado.id_rol">
+                                <option value="1">ADMINISTRADOR</option>
+                                <option value="2">SUCURSAL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" (click)="c('save')"
+                            [disabled]="!usuarioForm.valid"><i class="fa fa-check" aria-hidden="true">&nbsp;
+                                Ok</i></button>
+                        <button type="button" class="btn btn-danger" (click)="c('close')"><i class="fa fa-times-circle"
+                                aria-hidden="true">&nbsp; Cerrar</i></button>
+                    </div>
+                </form>
+            </div>
+        </ng-template>
     </div>
 </div>
       
