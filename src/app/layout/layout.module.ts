@@ -31,10 +31,7 @@ import { ClienteAddComponent } from './cliente/cliente-add/cliente-add.component
     LayoutRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
- 
-    ReactiveFormsModule
-    
+    NgbModule,    
   ]
 })
 export class LayoutModule { }
