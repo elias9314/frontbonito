@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteAddComponent } from './cliente/cliente-add/cliente-add.component';
 
 
+
 @NgModule({
   declarations: [ClienteComponent, GasComponent, PedidoComponent, SucursalComponent,
      SidebarComponent, NavbarComponent,ClienteSucursalesComponent,PedidosClienteComponent,
@@ -31,6 +32,8 @@ import { ClienteAddComponent } from './cliente/cliente-add/cliente-add.component
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+ 
+    ReactiveFormsModule
     
   ]
 })

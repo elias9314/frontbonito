@@ -9,11 +9,12 @@ import { ClienteSucursalesComponent } from './cliente-sucursales/cliente-sucursa
 import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.component';
 import { ClientesRealizarPedidosComponent } from './clientes-realizar-pedidos/clientes-realizar-pedidos.component';
 import { ClientesPedidosEntregadosComponent } from './clientes-pedidos-entregados/clientes-pedidos-entregados.component'
-import { LoginBienvenidaComponent } from './login-bienvenida/login-bienvenida.component';
-import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pendientes.component';
-import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component';
-import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component';
-import {ClienteAddComponent} from './cliente/cliente-add/cliente-add.component';
+import { LoginBienvenidaComponent } from './login-bienvenida/login-bienvenida.component'
+import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pendientes.component'
+import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component'
+import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component'
+import { ClienteAddComponent} from './cliente/cliente-add/cliente-add.component'
+//import { MapasComponent } from './mapas/mapas.component'
 
 const routes: Routes = [
   {path: 'sucursal', component: SucursalComponent, canActivate: [AuthGuard]},
@@ -27,9 +28,10 @@ const routes: Routes = [
   {path: 'homeLogin', component: LoginBienvenidaComponent,canActivate: [AuthGuard]},
   {path: 'pedidosPendientesSucur', component: SucursalPendientesComponent,canActivate: [AuthGuard]},
   {path: 'pedidosEntegadosSucur', component: SucursalEntregadosComponent,canActivate: [AuthGuard]},  
-  {path: 'pedidosEntegadosSucur/confirmarEntrega/:id_pedido', component: ConfirmarEntregaComponent,canActivate: [AuthGuard]},  
+  {path: 'pedidosEntegadosSucur/confirmarEntrega/:id_pedido', component: ConfirmarEntregaComponent,canActivate: [AuthGuard]},
   {path : 'cliente/add', component: ClienteAddComponent, canActivate:[AuthGuard]},
-  {path : 'cliente/edit/:id_usuario', component: ClienteAddComponent, canActivate:[AuthGuard]}
+  {path : 'cliente/edit/:id_usuario', component: ClienteAddComponent, canActivate:[AuthGuard]} 
+  //{path : 'mapas', component: MapasComponent},  
 
 
 ];
