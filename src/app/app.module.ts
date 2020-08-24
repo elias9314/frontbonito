@@ -10,13 +10,19 @@ import {ServiceService} from './services/service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
-import { GoogleMapsModule} from '@angular/google-maps'
+import { GoogleMapsModule} from '@angular/google-maps';
+import { MapaComponent } from './mapa/mapa.component'
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import { GeopositionService } from './services/geoposition.service';
+import { MarkerService } from './services/marker.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegistroComponent,
     LoginComponent,
+    MapaComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,8 +33,11 @@ import { GoogleMapsModule} from '@angular/google-maps'
     FormsModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    LeafletModule
   ],
-  providers: [ServiceService],
+  providers: [ServiceService,
+    GeopositionService,
+    MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
