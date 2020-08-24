@@ -14,7 +14,6 @@ import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pend
 import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component'
 import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component'
 
-
 const routes: Routes = [
   {path: 'sucursal', component: SucursalComponent, canActivate: [AuthGuard]},
   {path: 'gas', component: GasComponent,canActivate: [AuthGuard]},
@@ -34,7 +33,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    paramsInheritanceStrategy: 'always'
+  })],
   exports: [RouterModule]
 })
 export class LayoutRoutingModule { }

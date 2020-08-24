@@ -15,7 +15,7 @@ export class Usuario {
         this.nombre_usuario = '';
         this.apellido_usuario = '';
         this.cedula_usuario = '';
-        this.telefono_usuario = '';
+        this.telefono_usuario ='';
         this.direccion_usuario = '';
         this.correo_usuario = '';
         this.password_usuario = '';

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import {Marcador} from '../classes/marcador.class'
 import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
+import {} from '@angular/google-maps'
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -18,7 +19,7 @@ export class RegistroComponent implements OnInit {
  private patterncorreo : any="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
  private patterntelefono : any="[0-9]{7,10}$";
  private patterndireccion : any= "([a-zA-ZÀ-ÿ\u00f1\u00d1\.0-9][^\s]*)+$";
- private patternpassword : any="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}";
+
 
   hide = true;
   registroForm: FormGroup;
@@ -39,6 +40,24 @@ export class RegistroComponent implements OnInit {
     this.usuarioSeleccionado = new Usuario();
     this.formularioTipo();
   }
+ 
+  postUsuario() {
+    this.service.post('/user', { usuario: this.usuarioSeleccionado }).subscribe(
+      response => {
+        
+        Swal.fire(
+          'Gracias',
+          'Registro exitoso',
+          'success',  
+        );
+        this.router.navigate(['/login'])
+      },
+      
+      error => {
+        console.log('error');
+      }
+    );
+  }
 
   formularioTipo() {
     return this.registroForm = new FormGroup({
@@ -58,23 +77,5 @@ get telefono() {return this.registroForm.get('telefono'); }
 get direccion() {return this.registroForm.get('direccion'); }
 get correo() {return this.registroForm.get('correo'); }
 get password() {return this.registroForm.get('password'); }
- 
-  postUsuario() {
-    this.service.post('/user', { usuario: this.usuarioSeleccionado }).subscribe(
-      response => {
-        
-        Swal.fire(
-          'Gracias',
-          'Registro exitoso',
-          'success',  
-        );
-        this.router.navigate(['/login'])
-      },
-      
-      error => {
-        console.log('error');
-      }
-    );
-  }
 
 }
