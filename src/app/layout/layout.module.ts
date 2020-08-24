@@ -17,24 +17,19 @@ import { LoginBienvenidaComponent } from './login-bienvenida/login-bienvenida.co
 import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pendientes.component';
 import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component';
 import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component';
-import { MapasComponent } from './mapas/mapas.component'
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @NgModule({
   declarations: [ClienteComponent, GasComponent, PedidoComponent, SucursalComponent,
      SidebarComponent, NavbarComponent,ClienteSucursalesComponent,PedidosClienteComponent,
-    ClientesRealizarPedidosComponent,ClientesPedidosEntregadosComponent, LoginBienvenidaComponent, SucursalPendientesComponent, SucursalEntregadosComponent, ConfirmarEntregaComponent, MapasComponent],
+    ClientesRealizarPedidosComponent,ClientesPedidosEntregadosComponent, LoginBienvenidaComponent, SucursalPendientesComponent, SucursalEntregadosComponent, ConfirmarEntregaComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     FormsModule,
-<<<<<<< HEAD
-    LeafletModule
-
-=======
     ReactiveFormsModule
->>>>>>> cc346203e012cd5d28bbba03f59a9ba95ae63c33
+    
+
     
   ]
 })

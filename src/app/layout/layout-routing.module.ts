@@ -13,7 +13,7 @@ import { LoginBienvenidaComponent } from './login-bienvenida/login-bienvenida.co
 import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pendientes.component'
 import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component'
 import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component'
-import { MapasComponent } from './mapas/mapas.component'
+
 
 const routes: Routes = [
   {path: 'sucursal', component: SucursalComponent, canActivate: [AuthGuard]},
@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'pedidosPendientesSucur', component: SucursalPendientesComponent,canActivate: [AuthGuard]},
   {path: 'pedidosEntegadosSucur', component: SucursalEntregadosComponent,canActivate: [AuthGuard]},  
   {path: 'pedidosEntegadosSucur/confirmarEntrega/:id_pedido', component: ConfirmarEntregaComponent,canActivate: [AuthGuard]},  
-  {path: 'mapas', component: MapasComponent},  
+ 
 
 
 ];
