@@ -25,7 +25,7 @@ import { GoogleMapsModule} from '@angular/google-maps'
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     GoogleMapsModule,
   ],
   providers: [ServiceService],
