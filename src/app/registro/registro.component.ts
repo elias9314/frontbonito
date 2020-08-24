@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import {Marcador} from '../classes/marcador.class'
 import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
-import {} from '@angular/google-maps'
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
