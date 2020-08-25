@@ -10,7 +10,9 @@ import {ServiceService} from './services/service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
-import { GoogleMapsModule} from '@angular/google-maps'
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { GoogleMapsModule} from '@angular/google-maps'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    GoogleMapsModule,
+    LeafletModule
+  
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]

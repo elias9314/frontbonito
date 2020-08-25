@@ -30,7 +30,7 @@ export class ClienteAddComponent implements OnInit {
       this.service.getbyId(params.id_usuario).subscribe(
         res=>{
           console.log(res)
-        this.usuarioSeleccionado = res;
+        this.usuarioSeleccionado = res['Usuario'];
           this.edit = true;
 
         },
