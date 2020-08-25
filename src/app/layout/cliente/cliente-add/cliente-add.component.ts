@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../../../services/service.service';
 import {Usuario} from '../../../models/usuario';
 import { ActivatedRoute,Router} from '@angular/router';
+import Swal from 'sweetalert2';
 import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -44,8 +45,14 @@ export class ClienteAddComponent implements OnInit {
   postUsuario() {
     this.service.post('/user', {'usuario': this.usuarioSeleccionado}).subscribe(
       response => {
+        Swal.fire(
+          'Gracias',
+          'Registro exitoso',
+          'success',  
+        );
        this.router.navigate(['/cliente'])
       },
+
       error => {
         console.log('error');
       }
