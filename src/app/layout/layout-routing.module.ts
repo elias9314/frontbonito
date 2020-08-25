@@ -14,6 +14,7 @@ import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pend
 import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component'
 import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component'
 import { ClienteAddComponent } from './cliente/cliente-add/cliente-add.component';
+import { SucursalAddComponent } from './sucursal/sucursal-add/sucursal-add.component'
 
 const routes: Routes = [
   {path: 'sucursal', component: SucursalComponent, canActivate: [AuthGuard]},
@@ -29,8 +30,9 @@ const routes: Routes = [
   {path: 'pedidosEntegadosSucur', component: SucursalEntregadosComponent,canActivate: [AuthGuard]},  
   {path: 'pedidosEntegadosSucur/confirmarEntrega/:id_pedido', component: ConfirmarEntregaComponent,canActivate: [AuthGuard]},  
   {path : 'cliente/add', component:ClienteAddComponent, canActivate: [AuthGuard]},
-  {path : 'cliente/edit/:id_usuario', component:ClienteAddComponent, canActivate: [AuthGuard]}
-
+  {path : 'cliente/edit/:id_usuario', component:ClienteAddComponent, canActivate: [AuthGuard]},
+  {path : 'sucursal/add', component:SucursalAddComponent, canActivate: [AuthGuard]},
+  {path : 'sucursal/edit/:id_sucursal', component:SucursalAddComponent, canActivate: [AuthGuard]}
 
 ];
 

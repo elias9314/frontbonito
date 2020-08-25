@@ -11,7 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 import { GoogleMapsModule} from '@angular/google-maps';
-import { MapaComponent } from './mapa/mapa.component'
+import { MapaComponent } from './mapa/mapa.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import { GeopositionService } from './services/geoposition.service';
 import { MarkerService } from './services/marker.service';

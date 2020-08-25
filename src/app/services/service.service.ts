@@ -22,6 +22,14 @@ export class ServiceService {
     return this.http.put(`${environment.API_URL}/user/${id}`,data);
   }
 
+  getbyId1(id:string){
+    return this.http.get(`${environment.API_URL}/sucursal/${id}`);
+  }
+
+  update2(id: number, data: any){
+    return this.http.put(`${environment.API_URL}/sucursal/${id}`,data);
+  }
+
   post(url: string, data: any) {
     url = environment.API_URL + url;
     return this.http.post(url, data);

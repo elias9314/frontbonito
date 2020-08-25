@@ -1,0 +1,72 @@
+<div class="wrapper">
+    <div class="menu">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="componente">
+        <app-navbar></app-navbar>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="modal-header text-center">
+                        <div class="row">
+                            <h3 class="col-12" name="titulo">SUCURSAL</h3>
+                        </div>
+                        <div class="card-body">
+                            <form name="SUCURSAL" method="POST" #f="ngForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="nombre">Nombre Usuario</label>
+                                        <select name="nombre"  [(ngModel)]="sucursalSeleccionado.id_usuario" class="form-control">
+                                            <option value="{{item.id_usuario}}" *ngFor="let item of ususucursales">{{item["nombre_usuario"]}}&nbsp;{{item["apellido_usuario"]}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="producto">Producto</label>
+                                        <select name="producto"  [(ngModel)]="sucursalSeleccionado.id_producto" class="form-control" >
+                                            <option value="{{item.id_producto}}" *ngFor="let item of productos">{{item.nombre_producto}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="nombre_sucursal">Nombre Sucursal</label>
+                                        <input type="text" class="form-control"  name="Nombre_sucusral"
+                                            [(ngModel)]="sucursalSeleccionado.nombre_sucursal" placeholder="Nombre Sucursal">
+                                    </div>
+                                    <div>
+                                        <label for="telefono">Teléfono</label>
+                                        <input type="text" class="form-control"  name="telefono"
+                                            [(ngModel)]="sucursalSeleccionado.telefono_sucursal" placeholder="Teléfono">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="direccion">Dirección</label>
+                                        <input type="text" class="form-control"  name="direccion"
+                                            [(ngModel)]="sucursalSeleccionado.direccion_sucursal" placeholder="Dirección">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="correo">Correo</label>
+                                        <input type="text" class="form-control"  name="correo"
+                                            [(ngModel)]="sucursalSeleccionado.correo_sucursal" placeholder="Correo">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="stock">Stock</label>
+                                        <input type="number" class="form-control"  name="stock"
+                                            [(ngModel)]="sucursalSeleccionado.stock_sucursal" placeholder="Stock">
+                                    </div>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit" (click)=" edit ? actualizarSucursal(): postSucursal()">Aceptar</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
