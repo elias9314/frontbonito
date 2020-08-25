@@ -31,12 +31,11 @@ mapOptions: MapOptions;
   sucursalSeleccionado: Sucursal;
   sucursal: Sucursal;
 
-  ususucursales: Array<Usuario>;
+ 
   usuSucursal : Usuario;
-  usuSucursalSeleccionado: Usuario;
+ 
 
-  productos: Array<Producto>;
-  productoSeleccionado: Producto;
+
   producto: Producto;
   constructor(private service: ServiceService, private modalService: NgbModal) { }
 
@@ -48,14 +47,9 @@ mapOptions: MapOptions;
     this.sucursal = new Sucursal();
 
     this.getUsuSucursales();
-    this.ususucursales = new Array<Usuario>();
     this.usuSucursal = new Usuario();
-    this.usuSucursalSeleccionado = new Usuario();
-    console.log(this.usuSucursal);
 
     this.getProductos();
-    this.productoSeleccionado = new Producto();
-    this.productos = new Array<Producto>();
     this.producto = new Producto();
 
     this.initializeMapOptions();

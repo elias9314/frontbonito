@@ -8,7 +8,9 @@
         <h1>SUCURSAL</h1><br>
         <div class="container">
             <div>
-                <button type="button" class="btn btn-primary" (click)="agregarSucursal(contentSucursal,null)">AGREGAR</button>
+                <!-- <button type="button" class="btn btn-primary" (click)="agregarSucursal(contentSucursal,null)">AGREGAR</button> -->
+                <button type="button" class="btn btn-primary"
+                    [routerLink]="['/sucursal/add']">Crear</button>
             </div><br>
             <table class="table"> 
                 <thead class="thead-Primary">
@@ -33,9 +35,11 @@
                         <td>{{sucu.correo_sucursal}}</td>
                         <td>{{sucu.stock_sucursal}}</td>
                         <td>
-                            <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar" (click)="agregarSucursal(contentSucursal,sucu)"  *ngIf="sucu.id_sucursal != sucursal.id_sucursal" title="Actualizar"><i class="fa fa-pencil"
+                            <!-- <button class="btn btn-warning ml-1 btn-sm text-white" title="Actualizar" (click)="agregarSucursal(contentSucursal,sucu)"  *ngIf="sucu.id_sucursal != sucursal.id_sucursal" title="Actualizar"><i class="fa fa-pencil"
                                     aria-hidden="true"></i>
-                            </button>
+                            </button> -->
+                            <button class="btn btn-warning ml-1 btn-sm text-white" [routerLink]="['/sucursal/edit',sucu.id_sucursal]"><i class="fa fa-pencil"
+                                aria-hidden="true"></i></button>
                         </td>
                     </tr>
                 </tbody>

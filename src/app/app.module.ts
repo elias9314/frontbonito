@@ -11,10 +11,17 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+<<<<<<< HEAD
 import { MapaComponent } from './mapa/mapa.component';
 import { GeopositionService } from './services/geoposition.service';
 import { MarkerService } from './services/marker.service';
 
+=======
+//import { GoogleMapsModule} from '@angular/google-maps';
+import { MapaComponent } from './mapa/mapa.component';
+import { GeopositionService } from './services/geoposition.service';
+import { MarkerService } from './services/marker.service';
+>>>>>>> 3b61cccdc234e3a7350bae899297383e185156d2
 
 @NgModule({
   declarations: [
@@ -31,9 +38,15 @@ import { MarkerService } from './services/marker.service';
     NgbModule,
     HttpClientModule,
     FormsModule,
+<<<<<<< HEAD
     ReactiveFormsModule,
     LeafletModule
   
+=======
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+   // GoogleMapsModule,
+    LeafletModule
+>>>>>>> 3b61cccdc234e3a7350bae899297383e185156d2
   ],
   providers: [ServiceService,
     GeopositionService,
