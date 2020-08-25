@@ -36,7 +36,8 @@ const routes: Routes = [
   {path: 'cliente/edit/:id_usuario', component: ClienteAddComponent,canActivate: [AuthGuard]},  
   {path: 'mapaSucursales', component: MapasAllSucursalesComponent,canActivate: [AuthGuard]}, 
   {path: 'mapUbicacion/:lat/:long', component: VerUbicacionComponent,canActivate: [AuthGuard]},  
-  {path: 'sucursal/add', component: SucursalAddComponent,canActivate: [AuthGuard]},  
+  {path: 'sucursal/add', component: SucursalAddComponent,canActivate: [AuthGuard]},
+  {path: 'sucursal/edit/:id_sucursal', component: SucursalAddComponent,canActivate: [AuthGuard]},   
 
   
   

@@ -11,7 +11,6 @@ import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
 import * as L from 'leaflet';
 
-
 @Component({
   selector: 'app-sucursal-add',
   templateUrl: './sucursal-add.component.html',
@@ -19,31 +18,34 @@ import * as L from 'leaflet';
 })
 export class SucursalAddComponent implements OnInit {
 
+  //Latitud y longitud  de inicio
+latIni;
+longIni;
+
+//latitud y longitud escogidas por el cliente
+latCli
+longCli
+//
+map: Map;
+mapOptions: MapOptions;
+//
+private patternnombres: any ="([a-zA-ZÀ-ÿ\u00f1\u00d1\.][^\s]*)+$";
+//private patterncedula : any="[0-9]{7,10}$";
+private patterncorreo : any="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+private patterntelefono : any="[0-9]{7,10}$";
+//private patterndireccion : any= "([a-zA-ZÀ-ÿ\u00f1\u00d1\.0-9][^\s]*)+$";
+
   registroForm: FormGroup;
   hide : boolean= true;
   edit :boolean = false;
   sucursalSeleccionado: Sucursal;
 
   ususucursales: Array<Usuario>;
-  usuSucursal : Usuario;
-  usuSucursalSeleccionado: Usuario;
-
+ 
   productos: Array<Producto>;
-  productoSeleccionado: Producto;
-  producto: Producto;
 
   constructor(private service: ServiceService, private router: Router, private activedRoute : ActivatedRoute) { }
-//Latitud y longitud  de inicio
-latIni;
-longIni;
 
-//latitud y longitud escogidas por el cliente
-latCli 
-longCli
-//
-map: Map;
-mapOptions: MapOptions;
-//
   ngOnInit(): void {
     const params = this.activedRoute.snapshot.params;
     if(params.id_sucursal){
@@ -59,14 +61,8 @@ mapOptions: MapOptions;
     }
     this.sucursalSeleccionado = new Sucursal;
     this.getUsuSucursales();
-
-    this.usuSucursal = new Usuario();
- 
-
     this.getProductos();
-
-
-    this.producto = new Producto();
+    this.formularioTipo();
     this.initializeMapOptions();
     
     navigator.geolocation.getCurrentPosition(position => {
@@ -78,53 +74,40 @@ mapOptions: MapOptions;
 
   }
 
-  
-  
-  mostarCordenadas(){
-    console.log(this.latCli,this.longCli)
+  mostarCordenadas() {
+    console.log(this.latCli, this.longCli)
   }
   onMapReady(map: Map) {
     this.map = map;
-   // this.addSampleMarker();
-  
-  var marcador =  L.marker([this.latIni,this.longIni],{draggable:true}).addTo(this.map).bindPopup("Marca la ubicacion donde quieres recibir tu pedido")
-  .openPopup();
-    marcador.on('dragend',(e)=>{
+    // this.addSampleMarker();
+
+    var marcador = L.marker([this.latIni, this.longIni], { draggable: true }).addTo(this.map).bindPopup("Marca la ubicacion donde quieres recibir tu pedido")
+      .openPopup();
+    marcador.on('dragend', (e) => {
       console.log(e.target['_latlng'])
       this.latCli = e.target['_latlng']['lat']
       this.longCli = e.target['_latlng']['lng']
-      
-   });
 
- 
-   
+    });
+
   }
 
-
-
-  
   private initializeMapOptions() {
     this.latIni = -0.1865938
-    this.longIni=-78.5709681
+    this.longIni = -78.5709681
     this.mapOptions = {
-      center: latLng(this.latIni,this.longIni),
+      center: latLng(this.latIni, this.longIni),
       zoom: 14,
       layers: [
         tileLayer(
           'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXJtYW5kb3QxOTk4IiwiYSI6ImNrZTY3aTIyMzFhOGgyeXBkNHkzcWlnamEifQ.HL2cLzlPxOGz8ffAhYS2WA',
           {
-            
-            
             attribution: 'QuitoGas'
           })
       ],
     };
-    
-   
 
-    
   }
-
 
   getUsuSucursales(){
     this.service.get('/UsuSucursales').subscribe(
@@ -147,10 +130,6 @@ mapOptions: MapOptions;
    }
 
   postSucursal() {
-
-    this.sucursalSeleccionado.lat = this.latCli 
-
-    this.sucursalSeleccionado.long =this.longCli
     this.service.post('/sucursal', {'sucursal': this.sucursalSeleccionado}).subscribe(
       response => {
         Swal.fire(
@@ -179,4 +158,24 @@ mapOptions: MapOptions;
       }
     );
    }
+
+   formularioTipo() {
+    return this.registroForm = new FormGroup({
+      nombre: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
+     // apellido: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
+      //cedula: new FormControl('', [Validators.required,Validators.pattern(this.patterncedula)]),
+      telefono: new FormControl('', [Validators.required,Validators.pattern(this.patterntelefono)]),
+     // direccion: new FormControl('', [Validators.required,Validators.pattern(this.patterndireccion)]),
+      correo: new FormControl('', [Validators.required,Validators.pattern(this.patterncorreo)]),
+      stock: new FormControl('', Validators.required)
+   });
+}
+get nombre() {return this.registroForm.get('nombre'); }
+//get apellido() {return this.registroForm.get('apellido'); }
+//get cedula() {return this.registroForm.get('cedula'); }
+get telefono() {return this.registroForm.get('telefono'); }
+//get direccion() {return this.registroForm.get('direccion'); }
+get correo() {return this.registroForm.get('correo'); }
+get stock() {return this.registroForm.get('stock'); }
+
 }

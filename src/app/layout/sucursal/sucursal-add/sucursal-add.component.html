@@ -5,24 +5,25 @@
     <div class="componente">
         
         <app-navbar></app-navbar>
-        <h3>Agregar nueva sucursal</h3>
         <div class="row">
             
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="modal-header text-center">
+                        <h3 class="modal-title w-100">AGREGAR NUEVA SUCURSAL</h3>
+                    </div>
                         <div class="card-body">
-                            <form name="SUCURSAL" method="POST" #f="ngForm">
+                            <form [formGroup]="registroForm"  name="SUCURSAL" method="POST" #f="ngForm">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="nombre">Nombre Usuario</label>
-                                        <select name="nombre"  [(ngModel)]="sucursalSeleccionado.id_usuario" class="form-control">
+                                        <select name="nombre"  [(ngModel)]="sucursalSeleccionado.id_usuario" class="form-control" [ngModelOptions]="{standalone: true}">
                                             <option value="{{item.id_usuario}}" *ngFor="let item of ususucursales">{{item["nombre_usuario"]}}&nbsp;{{item["apellido_usuario"]}}</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="producto">Producto</label>
-                                        <select name="producto"  [(ngModel)]="sucursalSeleccionado.id_producto" class="form-control" >
+                                        <select name="producto"  [(ngModel)]="sucursalSeleccionado.id_producto" class="form-control" [ngModelOptions]="{standalone: true}" >
                                             <option value="{{item.id_producto}}" *ngFor="let item of productos">{{item.nombre_producto}}</option>
                                         </select>
                                     </div>
@@ -31,12 +32,34 @@
                                     <div class="col-md-6">
                                         <label for="nombre_sucursal">Nombre Sucursal</label>
                                         <input type="text" class="form-control"  name="Nombre_sucusral"
-                                            [(ngModel)]="sucursalSeleccionado.nombre_sucursal" placeholder="Nombre Sucursal">
+                                            [(ngModel)]="sucursalSeleccionado.nombre_sucursal" placeholder="Nombre Sucursal"
+                                            formControlName="nombre" required>
+                                            <div class="alert-danger" *ngIf="nombre.invalid &&(nombre.dirty || nombre.touched)">
+                                                <div class="container-error-mensage " *ngIf="nombre.errors.required">
+                                                    Por favor llena este campo para continuar
+                                                </div>
+                                                <div class="container-error-mensage "
+                                                 *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid &&
+                                                 nombre.errors.pattern">
+                                                    El nombre de la sucursal debe tener solo letras
+                                                </div>
+                                            </div>
                                     </div>
                                     <div>
                                         <label for="telefono">Teléfono</label>
                                         <input type="text" class="form-control"  name="telefono"
-                                            [(ngModel)]="sucursalSeleccionado.telefono_sucursal" placeholder="Teléfono">
+                                            [(ngModel)]="sucursalSeleccionado.telefono_sucursal"
+                                            formControlName="telefono" required placeholder="Teléfono">
+                                            <div class="alert-danger" *ngIf="telefono.invalid &&(telefono.dirty || telefono.touched)">
+                                                <div class="container-error-mensage " *ngIf="telefono.errors.required">
+                                                    Por favor llena este campo para continuar
+                                                </div>
+                                                <div class="container-error-mensage "
+                                                 *ngIf="(telefono.dirty || telefono.touched) && telefono.invalid &&
+                                                 telefono.errors.pattern">
+                                                    debe tener entre 7 y 10 dígitos
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
           
@@ -44,27 +67,43 @@
                                     <div class="col-md-12">
                                         <label for="correo">Correo</label>
                                         <input type="text" class="form-control"  name="correo"
-                                            [(ngModel)]="sucursalSeleccionado.correo_sucursal" placeholder="Correo">
+                                            [(ngModel)]="sucursalSeleccionado.correo_sucursal"
+                                            formControlName="correo" required placeholder="Correo">
+                                            <div class="alert-danger" *ngIf="correo.invalid &&(correo.dirty || correo.touched)">
+                                                <div class="container-error-mensage " *ngIf="correo.errors.required">
+                                                    Por favor llena este campo para continuar
+                                                </div>
+                                                <div class="container-error-mensage "
+                                                 *ngIf="(correo.dirty || correo.touched) && correo.invalid &&
+                                                 correo.errors.pattern">
+                                                    Verifique los campos del correo ejemplo: alex@hotmail.com
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="stock">Stock</label>
                                         <input type="number" class="form-control"  name="stock"
-                                            [(ngModel)]="sucursalSeleccionado.stock_sucursal" placeholder="Stock">
+                                            [(ngModel)]="sucursalSeleccionado.stock_sucursal"
+                                            formControlName="stock" placeholder="Stock">
+                                            <div class="alert-danger" *ngIf="stock.invalid &&(stock.dirty || stock.touched)">
+                                                <div class="container-error-mensage " *ngIf="stock.errors.required">
+                                                    Por favor llena este campo para continuar
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <label for="direccion">Seleccio la ubicacion de la sucursal </label>
+                                    <div class="col-md-12 ">
+                                        <h6 class="col-md-12 offset-md-2">Seleccione la ubicación de la sucursal </h6>
                                         <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions"></div>
                                     </div>
                                 </div>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit" (click)=" edit ? actualizarSucursal(): postSucursal()">Aceptar</button>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit" (click)=" edit ? actualizarSucursal(): postSucursal()" [disabled]="!registroForm.valid">Aceptar</button>
                               </form>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
