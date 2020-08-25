@@ -76,3 +76,9 @@ border: none;
 font-size: 30px;
   
 }
+
+.map {
+  height: 100%;
+  padding: 0;
+}
+

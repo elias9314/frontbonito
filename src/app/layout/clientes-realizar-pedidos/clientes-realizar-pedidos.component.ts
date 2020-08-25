@@ -3,6 +3,7 @@ import { ServiceService } from '../../services/service.service';
 import { Pedido } from '../../models/pedido';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { latLng, tileLayer } from 'leaflet';
 
 
 @Component({
@@ -12,6 +13,16 @@ import Swal from 'sweetalert2';
 })
 export class ClientesRealizarPedidosComponent implements OnInit {
 
+  options = {
+    layers: [
+      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      })
+    ],
+    zoom: 7,
+    center: latLng([ 46.879966, -121.726909 ])
+  };
+  
   pedido = new Pedido();
   infoIdUsuario
   constructor(private service: ServiceService, private route: ActivatedRoute,private router: Router) { }
