@@ -13,7 +13,11 @@ import { LoginBienvenidaComponent } from './login-bienvenida/login-bienvenida.co
 import { SucursalPendientesComponent } from './sucursal-pendientes/sucursal-pendientes.component'
 import { SucursalEntregadosComponent } from './sucursal-entregados/sucursal-entregados.component'
 import { ConfirmarEntregaComponent } from './confirmar-entrega/confirmar-entrega.component'
+<<<<<<< HEAD
 import { ClienteAddComponent } from './cliente/cliente-add/cliente-add.component'
+=======
+import { ClienteAddComponent } from './cliente/cliente-add/cliente-add.component';
+>>>>>>> 2b891c85c801e9aea9a52a659eba31444d0e5133
 
 const routes: Routes = [
   {path: 'sucursal', component: SucursalComponent, canActivate: [AuthGuard]},
@@ -27,10 +31,16 @@ const routes: Routes = [
   {path: 'homeLogin', component: LoginBienvenidaComponent,canActivate: [AuthGuard]},
   {path: 'pedidosPendientesSucur', component: SucursalPendientesComponent,canActivate: [AuthGuard]},
   {path: 'pedidosEntegadosSucur', component: SucursalEntregadosComponent,canActivate: [AuthGuard]},  
+<<<<<<< HEAD
   {path: 'pedidosEntegadosSucur/confirmarEntrega/:id_pedido', component: ConfirmarEntregaComponent,canActivate: [AuthGuard]}, 
   {path: 'cliente/add', component: ClienteAddComponent,canActivate: [AuthGuard]},  
   {path: 'cliente/edit/:id_usuario', component: ClienteAddComponent,canActivate: [AuthGuard]},  
 
+=======
+  {path: 'pedidosEntegadosSucur/confirmarEntrega/:id_pedido', component: ConfirmarEntregaComponent,canActivate: [AuthGuard]},  
+  {path : 'cliente/add', component:ClienteAddComponent, canActivate: [AuthGuard]},
+  {path : 'cliente/edit/:id_usuario', component:ClienteAddComponent, canActivate: [AuthGuard]}
+>>>>>>> 2b891c85c801e9aea9a52a659eba31444d0e5133
 
 
 ];

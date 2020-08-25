@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../../../services/service.service';
 import {Usuario} from '../../../models/usuario';
 import { ActivatedRoute,Router} from '@angular/router';
+import Swal from 'sweetalert2';
 import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -38,13 +39,20 @@ export class ClienteAddComponent implements OnInit {
       )
     }
     this.usuarioSeleccionado = new Usuario();
+    this.formularioTipo();
   }
 
   postUsuario() {
     this.service.post('/user', {'usuario': this.usuarioSeleccionado}).subscribe(
       response => {
+        Swal.fire(
+          'Gracias',
+          'Registro exitoso',
+          'success',  
+        );
        this.router.navigate(['/cliente'])
       },
+
       error => {
         console.log('error');
       }
@@ -63,5 +71,24 @@ export class ClienteAddComponent implements OnInit {
       }
     );
    }
+
+   formularioTipo() {
+    return this.registroForm = new FormGroup({
+      nombre: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
+      apellido: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
+      cedula: new FormControl('', [Validators.required,Validators.pattern(this.patterncedula)]),
+      telefono: new FormControl('', [Validators.required,Validators.pattern(this.patterntelefono)]),
+      direccion: new FormControl('', [Validators.required,Validators.pattern(this.patterndireccion)]),
+      correo: new FormControl('', [Validators.required,Validators.pattern(this.patterncorreo)]),
+      password: new FormControl('', Validators.required)
+   });
+}
+get nombre() {return this.registroForm.get('nombre'); }
+get apellido() {return this.registroForm.get('apellido'); }
+get cedula() {return this.registroForm.get('cedula'); }
+get telefono() {return this.registroForm.get('telefono'); }
+get direccion() {return this.registroForm.get('direccion'); }
+get correo() {return this.registroForm.get('correo'); }
+get password() {return this.registroForm.get('password'); }
 
 }

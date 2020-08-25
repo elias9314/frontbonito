@@ -31,11 +31,11 @@
         <label for="inputEmail" class="sr-only">Correo</label>
         <input formControlName="correo" type="email" id="inputEmail" class="form-control" placeholder="Correo" name="usuario" [(ngModel)]="logeos.correo_usuario" required autofocus>
         <div class="alert-danger" *ngIf="correo.invalid &&(correo.dirty || correo.touched)">
-            <div class="container-error-mensage " *ngIf="correo.invalid">
+            <div class="container-error-mensage " *ngIf="correo.errors.required">
                 se necesita tener este campo
             </div>
             <div class="container-error-mensage "
-             *ngIf="(correo.dirty || correo.touched) && correo.invalid &&
+             *ngIf="(correo.dirty || correo.touched) &&
              correo.errors.pattern">
                 comprobar caracteristicas
             </div>
