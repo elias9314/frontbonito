@@ -130,6 +130,8 @@ private patterntelefono : any="[0-9]{7,10}$";
    }
 
   postSucursal() {
+    this.sucursalSeleccionado.lat = this.latCli
+    this.sucursalSeleccionado.long =this.longCli
     this.service.post('/sucursal', {'sucursal': this.sucursalSeleccionado}).subscribe(
       response => {
         Swal.fire(

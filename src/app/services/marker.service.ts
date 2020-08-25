@@ -7,20 +7,21 @@ import * as L from 'leaflet';
 })
 export class MarkerService {
 
-  points: string = 'http://localhost:3000/points';
+  points: string = 'http://localhost:3000/sucursales';
 
   constructor(private http: HttpClient) { }
 
   sucursalMarkers(map: L.Map): void {
     this.http.get(this.points).subscribe((res: any) => {
-      for (const c of res.points) {
-        const lat = c.lat;
-        const lon = c.long;
-        console.log(lon, lat);
-        L.marker([lat, lon]).addTo(map)
-        .bindPopup( ` ${ c.nombre }`)
-        .openPopup();
-      }
+     console.log()
+     
+       for (const c of res['sucursales']) {
+         const lat = c['lat'];
+         const lon = c['long'];
+         L.marker([lat, lon]).addTo(map)
+         .bindPopup( ` ${ c['nombre_sucursal'] }`)
+         .openPopup();
+       }
     });
   }
 }

@@ -4,6 +4,7 @@ import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
 import * as L from 'leaflet';
 import { GeopositionService } from 'src/app/services/geoposition.service';
+import { MarkerService } from 'src/app/services/marker.service';
 
 @Component({
   selector: 'app-mapas-all-sucursales',
@@ -19,17 +20,17 @@ longIni;
 latCli
 longCli
 //
-map: Map;
+map: Map; 
 mapOptions: MapOptions;
 //
-  constructor(private geopositionService: GeopositionService) { }
+  constructor(private geopositionService: GeopositionService,private markerService: MarkerService) { }
 
   ngOnInit(): void {
 
     this.initializeMapOptions();
 
     
-    
+   
     
   }
 
@@ -47,14 +48,7 @@ mapOptions: MapOptions;
       this.latIni = pos.lat;
       this.longIni= pos.lng;
 
-      var marcador =  L.marker([this.latIni,this.longIni],{draggable:true}).addTo(this.map).bindPopup("Marca la ubicacion donde quieres recibir tu pedido")
-      .openPopup();
-        marcador.on('dragend',(e)=>{
-          console.log(e.target['_latlng'])
-          this.latCli = e.target['_latlng']['lat']
-          this.longCli = e.target['_latlng']['lng']
-          
-       });
+      this.markerService.sucursalMarkers(this.map);
     
 
       
@@ -69,11 +63,11 @@ mapOptions: MapOptions;
 
   
   private initializeMapOptions() {
-    this.latIni = -0.2669004
-    this.longIni=-78.5531827
+    this.latIni = -0.223530012693187
+    this.longIni= -78.50934631326909
     this.mapOptions = {
       center: latLng(this.latIni,this.longIni),
-      zoom: 14,
+      zoom: 10,
       layers: [
         tileLayer(
           'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXJtYW5kb3QxOTk4IiwiYSI6ImNrZTY3aTIyMzFhOGgyeXBkNHkzcWlnamEifQ.HL2cLzlPxOGz8ffAhYS2WA',
