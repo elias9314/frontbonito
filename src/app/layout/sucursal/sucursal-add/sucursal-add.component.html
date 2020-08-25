@@ -3,14 +3,14 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="componente">
+        
         <app-navbar></app-navbar>
+        <h3>Agregar nueva sucursal</h3>
         <div class="row">
+            
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="modal-header text-center">
-                        <div class="row">
-                            <h3 class="col-12" name="titulo">SUCURSAL</h3>
-                        </div>
                         <div class="card-body">
                             <form name="SUCURSAL" method="POST" #f="ngForm">
                                 <div class="row">
@@ -39,13 +39,7 @@
                                             [(ngModel)]="sucursalSeleccionado.telefono_sucursal" placeholder="Teléfono">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label for="direccion">Dirección</label>
-                                        <input type="text" class="form-control"  name="direccion"
-                                            [(ngModel)]="sucursalSeleccionado.direccion_sucursal" placeholder="Dirección">
-                                    </div>
-                                </div>
+          
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="correo">Correo</label>
@@ -58,6 +52,13 @@
                                         <label for="stock">Stock</label>
                                         <input type="number" class="form-control"  name="stock"
                                             [(ngModel)]="sucursalSeleccionado.stock_sucursal" placeholder="Stock">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="direccion">Seleccio la ubicacion de la sucursal </label>
+                                        <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions"></div>
                                     </div>
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" (click)=" edit ? actualizarSucursal(): postSucursal()">Aceptar</button>

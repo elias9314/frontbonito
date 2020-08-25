@@ -14,3 +14,9 @@
     grid-row: 0;
     
   }
+  
+#map {
+  width: auto;
+    height: 6cm;
+  }
+

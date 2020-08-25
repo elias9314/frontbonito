@@ -20,7 +20,7 @@ latIni;
 longIni;
 
 //latitud y longitud escogidas por el cliente
-latCli
+latCli 
 longCli
 //
 map: Map;
