@@ -30,10 +30,8 @@ map: Map;
 mapOptions: MapOptions;
 //
 private patternnombres: any ="([a-zA-ZÀ-ÿ\u00f1\u00d1\.][^\s]*)+$";
-//private patterncedula : any="[0-9]{7,10}$";
 private patterncorreo : any="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 private patterntelefono : any="[0-9]{7,10}$";
-//private patterndireccion : any= "([a-zA-ZÀ-ÿ\u00f1\u00d1\.0-9][^\s]*)+$";
 
   registroForm: FormGroup;
   hide : boolean= true;
@@ -164,19 +162,13 @@ private patterntelefono : any="[0-9]{7,10}$";
    formularioTipo() {
     return this.registroForm = new FormGroup({
       nombre: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
-     // apellido: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
-      //cedula: new FormControl('', [Validators.required,Validators.pattern(this.patterncedula)]),
       telefono: new FormControl('', [Validators.required,Validators.pattern(this.patterntelefono)]),
-     // direccion: new FormControl('', [Validators.required,Validators.pattern(this.patterndireccion)]),
       correo: new FormControl('', [Validators.required,Validators.pattern(this.patterncorreo)]),
       stock: new FormControl('', Validators.required)
    });
 }
 get nombre() {return this.registroForm.get('nombre'); }
-//get apellido() {return this.registroForm.get('apellido'); }
-//get cedula() {return this.registroForm.get('cedula'); }
 get telefono() {return this.registroForm.get('telefono'); }
-//get direccion() {return this.registroForm.get('direccion'); }
 get correo() {return this.registroForm.get('correo'); }
 get stock() {return this.registroForm.get('stock'); }
 
