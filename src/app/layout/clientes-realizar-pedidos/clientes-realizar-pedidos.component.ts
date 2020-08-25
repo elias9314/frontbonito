@@ -3,7 +3,10 @@ import { ServiceService } from '../../services/service.service';
 import { Pedido } from '../../models/pedido';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { latLng, tileLayer } from 'leaflet';
+import {latLng, MapOptions, tileLayer, Map, Marker, icon} from 'leaflet';
+import "leaflet/dist/images/marker-shadow.png";
+import "leaflet/dist/images/marker-icon-2x.png";
+import * as L from 'leaflet';
 
 
 @Component({
@@ -12,16 +15,18 @@ import { latLng, tileLayer } from 'leaflet';
   styleUrls: ['./clientes-realizar-pedidos.component.css']
 })
 export class ClientesRealizarPedidosComponent implements OnInit {
+//Latitud y longitud  de inicio
+latIni;
+longIni;
 
-  options = {
-    layers: [
-      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      })
-    ],
-    zoom: 7,
-    center: latLng([ 46.879966, -121.726909 ])
-  };
+//latitud y longitud escogidas por el cliente
+latCli
+longCli
+//
+map: Map;
+mapOptions: MapOptions;
+//
+
   
   pedido = new Pedido();
   infoIdUsuario
@@ -29,6 +34,62 @@ export class ClientesRealizarPedidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getinfoClientes()
+
+    this.initializeMapOptions();
+    
+      navigator.geolocation.getCurrentPosition(position => {
+        this.latIni= position.coords.latitude
+        this.longIni = position.coords.latitude
+        console.log(position.coords.latitude)
+        console.log(position.coords.longitude)
+      });
+  }
+
+
+  
+  mostarCordenadas(){
+    console.log(this.latCli,this.longCli)
+  }
+  onMapReady(map: Map) {
+    this.map = map;
+   // this.addSampleMarker();
+  
+  var marcador =  L.marker([this.latIni,this.longIni],{draggable:true}).addTo(this.map).bindPopup("Marca la ubicacion donde quieres recibir tu pedido")
+  .openPopup();
+    marcador.on('dragend',(e)=>{
+      console.log(e.target['_latlng'])
+      this.latCli = e.target['_latlng']['lat']
+      this.longCli = e.target['_latlng']['lng']
+      
+   });
+
+ 
+   
+  }
+
+
+
+  
+  private initializeMapOptions() {
+    this.latIni = -0.1865938
+    this.longIni=-78.5709681
+    this.mapOptions = {
+      center: latLng(this.latIni,this.longIni),
+      zoom: 14,
+      layers: [
+        tileLayer(
+          'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXJtYW5kb3QxOTk4IiwiYSI6ImNrZTY3aTIyMzFhOGgyeXBkNHkzcWlnamEifQ.HL2cLzlPxOGz8ffAhYS2WA',
+          {
+            
+            
+            attribution: 'QuitoGas'
+          })
+      ],
+    };
+    
+   
+
+    
   }
 
   getinfoClientes(){
@@ -57,6 +118,8 @@ export class ClientesRealizarPedidosComponent implements OnInit {
         this.pedido.id_usuario = this.infoIdUsuario['id_usuario'];
         this.pedido.id_sucursal = this.route.params['value']['id_sucursal'];
         this.pedido.id_producto = this.route.params['value']['id_producto'];
+        this.pedido.lat = this.latCli
+        this.pedido.long =  this.longCli
         this.service.post('/pedido', (this.pedido)).subscribe(
           response => {
 

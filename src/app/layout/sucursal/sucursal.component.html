@@ -84,6 +84,8 @@
                 [(ngModel)]="sucursalSeleccionado.direccion_sucursal" placeholder="Dirección">
         </div>
     </div>
+
+    
     <div class="row">
         <div class="col-md-12">
             <label for="correo">Correo</label>
@@ -91,6 +93,11 @@
                 [(ngModel)]="sucursalSeleccionado.correo_sucursal" placeholder="Correo">
         </div>
     </div>
+    
+
+    <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions"></div>
+
+
     <div class="row">
         <div class="col-md-6">
             <label for="stock">Stock</label>

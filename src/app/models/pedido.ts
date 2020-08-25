@@ -8,5 +8,7 @@ export class Pedido {
     cantidad_pedido:number;
     fecha_pedido = new Date;
     fecha_entrega_pedido: Date;
+    lat: string;
+    long: string;
 
 }

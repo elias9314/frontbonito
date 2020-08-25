@@ -77,8 +77,8 @@ font-size: 30px;
   
 }
 
-.map {
-  height: 100%;
-  padding: 0;
-}
+#map {
+  width: auto;
+    height: 6cm;
+  }
 

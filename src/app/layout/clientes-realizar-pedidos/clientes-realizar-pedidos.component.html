@@ -8,7 +8,7 @@
         <h1>Realizacion de pedido</h1><br>
         <div class="container">
 
-            <form  method="POST" class="formPedido">
+            <form method="POST" class="formPedido">
                 <div class="row">
                     <div class="col-md-6">
                         <label for="cantidad">Ingrese Cantidad</label>
@@ -20,7 +20,16 @@
                         <input type="date" class="form-control" id="fechaEntrega" name="fechaEntrega"
                             [(ngModel)]="pedido.fecha_entrega_pedido" placeholder="Fecha Entrega">
                     </div>
-                    
+
+                    <div class="col-md-12">
+                        <label for="fechaEntrega">Elige la ubicacion de entrega</label>
+                       
+                    <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions"></div>
+
+                   </div>
+
+
+
                 </div>
                 <input type="submit" value="Confirmar Pedido" class="button" (click)="realizarPedido()">
 
@@ -43,10 +52,4 @@
 
 
     </div>
-</div>
-
-
-<div class="map"
-     leaflet
-     [leafletOptions]="options">
 </div>

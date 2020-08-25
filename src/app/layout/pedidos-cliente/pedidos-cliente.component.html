@@ -12,21 +12,31 @@
         <div class="container">
 
             <div class="row justify-content-around">
-                <div class="col-6" *ngFor="let cli of pedidosPendientesCliente">
-                    <article class="articles">
-                        <h2>{{cli['nombre_usuario']}}</h2>              
-                        <h2>{{cli['apellido_usuario']}}</h2>                        
-                        <h5>Fecha de entrega: </h5>
-                        <p>{{cli.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</p>
-                        <h5>Total a pagar: </h5>
-                        <p>{{cli['total']}}</p>
-                         <h5>Estado del pedido: </h5>
-                        <p>{{cli['estado_pedido']}}</p>
-                         
-                    </article>
-                </div>
+                <table class="table">
+                    <thead class="thead-Primary">
+                        <tr>
+                            
+                            <th scope="col">Fecha entrega</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total a pagar</th>
+                            <th scope="col">Estado</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  *ngFor="let cli of pedidosPendientesCliente">
+                            <td>{{cli.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</td>
+                            <td>{{cli['cantidad_pedido']}}</td>
+                            <td>$ {{cli['total']}}</td>
+                            <td>{{cli['estado_pedido']}}</td>
+    
+                        </tr>
+                    </tbody>
+                </table>
               
               </div>
+
+        
 
            
             <div> 

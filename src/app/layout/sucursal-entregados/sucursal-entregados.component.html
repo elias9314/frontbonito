@@ -9,25 +9,31 @@
         <h1>Sucursal<h3>Pedidos Entregados</h3></h1><br>    
         <div class="container">
                <!-- <div *ngFor="let sucursal of infoIdSucursal">{{sucursal.stock_sucursal}}</div>-->
-            <div class="row justify-content-around">
-                <div class="col-6" *ngFor="let entreSucursal of PedidosEntregadosSucursal">
-                    <article class="articles" >
-                        
-                            <h2>{{entreSucursal.nombre_usuario}} <h2>{{entreSucursal.apellido_usuario}}</h2> </h2>
-                            <h5>Fecha de entrega: </h5>
-                            <p>{{entreSucursal.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</p>
-                            <h5>Cantidad: </h5>
-                            <p>{{entreSucursal.cantidad_pedido}}</p>
-                            <h5>Total a pagar: </h5>
-                            <p><b>$ </b>{{entreSucursal.total}} Dolares</p>
-                            <h5>Estado de entrega: <b>{{entreSucursal.estado_pedido}}</b> </h5>
-                            
+               <table class="table">
+                <thead class="thead-Primary">
+                    <tr>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Fecha entrega</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total a pagar</th>
+                        <th scope="col">Estado</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let entreSucursal of PedidosEntregadosSucursal">
+                        <td>{{entreSucursal.nombre_usuario}} {{entreSucursal.apellido_usuario}}</td>
+                        <td>{{entreSucursal.fecha_entrega_pedido | date:'dd-MM-yyyy'}}</td>
+                        <td>{{entreSucursal.cantidad_pedido}}</td>
+                        <td>$ {{entreSucursal.total}} Dolares</td>
+                        <td>{{entreSucursal.estado_pedido}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
                                           
                      
-                    </article>
-                </div>
-              
-              </div>
+            
 
             <div> 
         

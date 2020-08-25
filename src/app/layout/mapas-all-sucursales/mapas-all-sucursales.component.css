@@ -56,8 +56,29 @@
   overflow: auto;
 }
 
+.formPedido{
+  text-align: center;
+}
+.formPedido label{
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.button{
+margin-top: 50px;
+background: rgb(99, 140, 255);
+color: white;
+width: auto;
+height: 2cm;
+border-radius: 20px;
+border: none;
+font-size: 30px;
+  
+}
+
 #map {
   width: auto;
-    height: 6cm;
+    height: 15cm;
   }
 
