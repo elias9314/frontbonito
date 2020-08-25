@@ -31,7 +31,7 @@ import { MarkerService } from './services/marker.service';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     GoogleMapsModule,
     LeafletModule
   ],

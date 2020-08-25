@@ -30,7 +30,7 @@ export class ClienteAddComponent implements OnInit {
       this.service.getbyId(params.id_usuario).subscribe(
         res=>{
           console.log(res)
-        this.usuarioSeleccionado = res;
+        this.usuarioSeleccionado = res['Usuario'];
           this.edit = true;
 
         },
@@ -38,6 +38,7 @@ export class ClienteAddComponent implements OnInit {
       )
     }
     this.usuarioSeleccionado = new Usuario();
+    this.formularioTipo();
   }
 
   postUsuario() {
@@ -63,5 +64,24 @@ export class ClienteAddComponent implements OnInit {
       }
     );
    }
+
+   formularioTipo() {
+    return this.registroForm = new FormGroup({
+      nombre: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
+      apellido: new FormControl('', [Validators.required,Validators.pattern(this.patternnombres)]),
+      cedula: new FormControl('', [Validators.required,Validators.pattern(this.patterncedula)]),
+      telefono: new FormControl('', [Validators.required,Validators.pattern(this.patterntelefono)]),
+      direccion: new FormControl('', [Validators.required,Validators.pattern(this.patterndireccion)]),
+      correo: new FormControl('', [Validators.required,Validators.pattern(this.patterncorreo)]),
+      password: new FormControl('', Validators.required)
+   });
+}
+get nombre() {return this.registroForm.get('nombre'); }
+get apellido() {return this.registroForm.get('apellido'); }
+get cedula() {return this.registroForm.get('cedula'); }
+get telefono() {return this.registroForm.get('telefono'); }
+get direccion() {return this.registroForm.get('direccion'); }
+get correo() {return this.registroForm.get('correo'); }
+get password() {return this.registroForm.get('password'); }
 
 }
